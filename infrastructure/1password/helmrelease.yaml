@@ -8,7 +8,6 @@ spec:
   interval: 5m
   chart:
     spec:
-      
       chart: connect
       version: 1.4.0
       sourceRef:
@@ -78,7 +77,7 @@ spec:
         name: onepassword-connect-operator
 
       roleBinding:
-        create: "true"
+        create: "false"
         name: onepassword-connect-operator
 
       clusterRole:
