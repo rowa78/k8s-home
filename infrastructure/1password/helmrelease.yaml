@@ -73,16 +73,16 @@ spec:
         value:
 
       serviceAccount:
-        create: "{{ .Values.operator.create }}"
+        create: "true"
         annotations: {}
         name: onepassword-connect-operator
 
       roleBinding:
-        create: "{{ .Values.operator.create }}"
+        create: "true"
         name: onepassword-connect-operator
 
       clusterRole:
-        create: "{{ .Values.operator.create }}"
+        create: "true"
         name: onepassword-connect-operator
 
     service:
