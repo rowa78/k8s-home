@@ -75,3 +75,29 @@ export GITHUB_TOKEN=
 export BOOTSTRAP_GITHUB_REPOSITORY=https://github.com/rowa78/k8s-home
 ```
 
+allow this file
+
+```
+direnv allow .envrc
+```
+
+Now your environment-variables are set.
+
+## Setup flux
+
+Create namespace
+
+```
+kubectl create namespace flux-system
+```
+
+### create initial config
+
+### install flux to cluster
+
+install flux
+
+``` 
+kc create namespace flux-system
+flux bootstrap github --owner=rowa78 --repository=k8s-gitops --path=./cluster/base
+```
