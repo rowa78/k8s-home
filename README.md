@@ -73,6 +73,9 @@ export GITHUB_USER=
 export GITHUB_TOKEN=
 
 export BOOTSTRAP_GITHUB_REPOSITORY=https://github.com/rowa78/k8s-home
+
+# 1Password-Token
+export OP_TOKEN=
 ```
 
 allow this file
@@ -93,11 +96,18 @@ kubectl create namespace flux-system
 
 ### create initial config
 
+We use the 1Password-Operator to deliver secrets to out cluster. It need's an secret ' with the 1password-credentials.json in it. create an integration in 1password and save 1password-credentials.json and the token
+
+``` 
+kubectl create namespace 1password
+kubectl -n 1password create secret generic op-credentials --from-file=1password-credentials.json
+```
+
 ### install flux to cluster
 
 install flux
 
 ``` 
 kc create namespace flux-system
-flux bootstrap github --owner=rowa78 --repository=k8s-gitops --path=./cluster/base
+flux bootstrap github --owner=rowa78 --repository=k8s-home --path=./clusters/production
 ```
