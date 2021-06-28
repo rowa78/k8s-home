@@ -135,3 +135,16 @@ install flux
 kc create namespace flux-system
 flux bootstrap github --owner=rowa78 --repository=k8s-home --path=./clusters/production
 ```
+
+### manual changed
+
+i need to resolve dns-entries in my lan. So i changed the dns-server in configmap for CoreDNS:
+
+```
+kc -n kube-system edit configmap coredns
+# change forward-line
+# forward to my pi-hole
+forward . 192.168.0.42
+```
+
+perhaps there is a better solution. Will look for that later.
