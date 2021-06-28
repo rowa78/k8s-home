@@ -124,6 +124,7 @@ kubectl -n 1password apply -f secret.yaml
 kubectl -n 1password create secret generic onepassword-token --from-literal=token=$OP_TOKEN
 
 # delete the temporary secret.yaml
+
 ```
 
 ### install flux to cluster
