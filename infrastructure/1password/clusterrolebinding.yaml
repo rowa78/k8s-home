@@ -7,7 +7,6 @@ roleRef:
   kind: ClusterRole
   name: onepassword-connect-operator
 subjects:
-- apiGroup: rbac.authorization.k8s.io
-  kind: User
+- kind: ServiceAccount
   name: onepassword-connect-operator
   namespace: 1password
