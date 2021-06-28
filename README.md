@@ -98,9 +98,32 @@ kubectl create namespace flux-system
 
 We use the 1Password-Operator to deliver secrets to out cluster. It need's an secret ' with the 1password-credentials.json in it. create an integration in 1password and save 1password-credentials.json and the token
 
+encode your 1password-credentials.json
+
+```
+cat 1password-credentials.json | base64
+```
+
+create a secret.yaml: 
+
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: op-credentials
+  namespace: 1password
+type: Opaque
+stringData:
+  1password-credentials.json: |-
+    <base64 encoded 1password-credentials>
+```
+
 ``` 
 kubectl create namespace 1password
-kubectl -n 1password create secret generic op-credentials --from-file=1password-credentials.json
+kubectl -n 1password apply -f secret.yaml
+kubectl -n 1password create secret generic onepassword-token --from-literal=token=$OP_TOKEN
+
+# delete the temporary secret.yaml
 ```
 
 ### install flux to cluster
