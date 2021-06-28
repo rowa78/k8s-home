@@ -8,7 +8,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      # renovate: registryUrl=https://infracloudio.github.io/charts
+      
       chart: connect
       version: 1.4.0
       sourceRef:
@@ -42,7 +42,8 @@ spec:
         values: {}
       imagePullPolicy: IfNotPresent
       version: "{{ .Chart.AppVersion }}"
-      nodeSelector: {}
+      nodeSelector: 
+        beta.kubernetes.io/arch: amd64
       probes:
         liveness: true
         readiness: true
