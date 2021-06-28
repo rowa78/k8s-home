@@ -137,7 +137,7 @@ spec:
       ## If you use ingress-nginx < 0.21.0
       #   nginx.ingress.kubernetes.io/secure-backends: "true"
       ## if you use ingress-nginx >= 0.21.0
-        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      # nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 
 
       ## Kubernetes Dashboard Ingress paths
