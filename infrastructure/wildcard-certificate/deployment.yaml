@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: diskstation-upload
+  labels:
+    app: diskstation-upload
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: diskstation-upload
+  template:
+    metadata:
+      labels:
+        app: diskstation-upload
+    spec:
+      containers:
+      - name: acme-sh
+        image: neilpang/acme.sh:2.9.0
