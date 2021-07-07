@@ -22,11 +22,11 @@ spec:
         args: ["-c", "while true; do echo hello; sleep 10;done"]  
         volumeMounts:
         - mountPath: /acme.sh/mydomain/mydomain.key
-          subpath: mydomain.key
+          subPath: mydomain.key
           name: cert
           readOnly: true
         - mountPath: /acme.sh/mydomain/ca.crt
-          subpath: ca.crt
+          subPath: ca.crt
           name: ca
           readOnly: true
       volumes:
