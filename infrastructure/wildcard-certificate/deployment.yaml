@@ -24,6 +24,9 @@ spec:
         - mountPath: /acme.sh/mydomain
           name: cert
           readOnly: true
+        - mountPath: /acme.sh/mydomain
+          name: ca
+          readOnly: true
       volumes:
       - name: cert
         projected:
@@ -32,5 +35,16 @@ spec:
           - secret:
               items:
               - key: tls.key
-                path: tls.key
+                path: mydomain.key
+              - key: tls.crt
+                path: mydomain.crt
               name: "${SECRET_DOMAIN/./-}-tls"
+      - name: ca
+        projected:
+          defaultMode: 420
+          sources:
+          - secret:
+              items:
+              - key: ca.crt
+                path: ca.crt
+              name: letsencrypt-ca
