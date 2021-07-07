@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: diskstation-upload
+  namespace: ingress-nginx
   labels:
     app: diskstation-upload
 spec:
@@ -17,3 +18,5 @@ spec:
       containers:
       - name: acme-sh
         image: neilpang/acme.sh:2.9.0
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do echo hello; sleep 10;done"]  
