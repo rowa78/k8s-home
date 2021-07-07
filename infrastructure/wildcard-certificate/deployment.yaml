@@ -20,3 +20,17 @@ spec:
         image: neilpang/acme.sh:2.9.0
         command: ["/bin/sh"]
         args: ["-c", "while true; do echo hello; sleep 10;done"]  
+        volumeMounts:
+        - mountPath: /acme.sh/mydomain
+          name: cert
+          readOnly: true
+      volumes:
+      - name: cert
+        projected:
+          defaultMode: 420
+          sources:
+          - secret:
+              items:
+              - key: tls.key
+                path: tls.key
+              name: "${SECRET_DOMAIN/./-}-tls"
