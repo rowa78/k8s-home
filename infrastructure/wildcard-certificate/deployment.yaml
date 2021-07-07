@@ -15,6 +15,10 @@ spec:
       labels:
         app: diskstation-upload
     spec:
+      initContainers:
+      - name: create-empty-file
+        image: alpine
+        command: ["touch", "/acme.sh/mydomain/mydomain.conf"]
       containers:
       - name: acme-sh
         image: neilpang/acme.sh:2.9.0
@@ -35,10 +39,6 @@ spec:
         - mountPath: /acme.sh/mydomain/ca.cer
           subPath: ca.crt
           name: ca
-          readOnly: true
-        - mountPath: /acme.sh/mydomain/mydomain.conf
-          subPath: mydomain.conf
-          name: conf
           readOnly: true
       volumes:
       - name: cert
@@ -61,6 +61,3 @@ spec:
               - key: ca.crt
                 path: ca.crt
               name: letsencrypt-ca
-      - name: conf
-        configMap:
-          name: mydomain
