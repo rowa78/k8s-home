@@ -62,11 +62,5 @@ spec:
                 path: ca.crt
               name: letsencrypt-ca
       - name: conf
-        projected:
-          defaultMode: 420
-          sources:
-          - configmap:
-              items:
-              - key: mydomain.conf
-                path: mydomain.conf
-              name: mydomain
+        configMap:
+          name: mydomain
