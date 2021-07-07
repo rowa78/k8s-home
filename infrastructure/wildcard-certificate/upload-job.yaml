@@ -1,12 +1,13 @@
 apiVersion: batch/v1
-kind: Job
+kind: CronJob
 metadata:
   name: diskstation-upload
   namespace: ingress-nginx
   labels:
     app: diskstation-upload
 spec:
-  template:
+  schedule: "*/60 * * * *"
+  jobTemplate:
     metadata:
       labels:
         app: diskstation-upload
