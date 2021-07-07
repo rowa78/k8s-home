@@ -15,10 +15,6 @@ spec:
       labels:
         app: diskstation-upload
     spec:
-      initContainers:
-      - name: create-empty-file
-        image: alpine
-        command: ["touch", "/acme.sh/mydomain/mydomain.conf"]
       containers:
       - name: acme-sh
         image: neilpang/acme.sh:2.9.0
