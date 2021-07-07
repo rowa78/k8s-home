@@ -1,15 +1,11 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
   name: diskstation-upload
   namespace: ingress-nginx
   labels:
     app: diskstation-upload
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: diskstation-upload
   template:
     metadata:
       labels:
@@ -19,7 +15,7 @@ spec:
       - name: acme-sh
         image: neilpang/acme.sh:2.9.0
         command: ["/bin/sh"]
-        args: ["-c", "while true; do echo hello; sleep 10;done"]
+        args: ["-c", "touch /acme.sh/mydomain/mydomain.conf && acme.sh --deploy --domain mydomain --deploy-hook synology_dsm"]
         envFrom:
         - secretRef:
             name: synology-secret 
