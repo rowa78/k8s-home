@@ -11,8 +11,8 @@ spec:
       labels:
         app: diskstation-upload
     spec:
-      containers:
       restartPolicy: Never
+      containers:
       - name: acme-sh
         image: neilpang/acme.sh:2.9.0
         command: ["/bin/sh"]
