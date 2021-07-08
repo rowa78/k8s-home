@@ -6,7 +6,7 @@ metadata:
   labels:
     app: diskstation-upload
 spec:
-  schedule: "*/60 * * * *"
+  schedule: "42 0 * * *"
   jobTemplate:
     spec:
       template:
