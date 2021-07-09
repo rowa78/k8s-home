@@ -96,7 +96,7 @@ spec:
             name: diskstation
             port: 
               number: 80
-        path: /
+        path: /note
         pathType: Prefix
   tls:
     - hosts:
