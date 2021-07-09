@@ -80,3 +80,24 @@ spec:
   tls:
     - hosts:
       - minio.${SECRET_DOMAIN}
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: note
+  namespace: ingress-nginx
+spec:
+  rules:
+  - host: note.${SECRET_DOMAIN}
+    http:
+      paths:
+      - backend:
+          service: 
+            name: diskstation
+            port: 
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+    - hosts:
+      - note.${SECRET_DOMAIN}
