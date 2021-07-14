@@ -1,0 +1,10 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: k8s-home-charts
+  namespace: flux-system
+spec:
+  interval: 30m
+  url: https://rowa78.github.io/k8s-home
+  timeout: 2m
