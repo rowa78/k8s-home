@@ -84,5 +84,7 @@ persistence:
   storageClassName: nfs-client
   size: 8Gi
 
-mariadb:
-  rootpassword: password
+mariadb:  
+  database: database
+  user: MARIADB_USER
+  password: password

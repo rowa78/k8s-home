@@ -31,11 +31,19 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           env:
+          - name: MARIADB_DATABASE
+            value: {{ .Values.mariadb.database }}
+          - name: MARIADB_USER
+            value: {{ .Values.mariadb.user }}
+          - name: MARIADB_PASSWORD
+            secretKeyRef:
+                name: {{ .Values.mariadb.secretname }}
+                key: MARIADB_PASSWORD
             # Use secret in real usage
           - name: MARIADB_ROOT_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: blog-secrets
+                name: {{ .Values.mariadb.secretname }}
                 key: MARIADB_ROOT_PASSWORD
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
