@@ -15,8 +15,10 @@ spec:
           name: k8s-home-charts
           namespace: flux-system
     values:      
-      image: mariadb
-      imageTag: 10.6.3
+      image:
+        repository: mariadb
+        tag: 10.6.3
+        pullPolicy: IfNotPresent
       podAnnotations:
         backup.velero.io/backup-volumes: mariadb-persistent-storage
       
