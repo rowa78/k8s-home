@@ -9,4 +9,4 @@ kubeconfig
 .decrypted~*.yaml
 # direnv
 .envrc
-
+bin/
