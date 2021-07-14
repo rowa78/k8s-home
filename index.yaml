@@ -3,6 +3,16 @@ entries:
   mariadb:
   - apiVersion: v2
     appVersion: 10.6.2
+    created: "2021-07-14T21:10:09.828417225Z"
+    description: A Helm chart for Kubernetes
+    digest: d930240045a49b83f215eba59f21f95a0d505d53c6636d99b7a9c4e3b7def016
+    name: mariadb
+    type: application
+    urls:
+    - https://github.com/rowa78/k8s-home/releases/download/mariadb-0.0.4/mariadb-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
+    appVersion: 10.6.2
     created: "2021-07-14T20:19:00.835506976Z"
     description: A Helm chart for Kubernetes
     digest: 6b83c20d5bf20afa1317fe40be6297bd09f8e3c39479ef35d79d7f2861714334
@@ -12,6 +22,16 @@ entries:
     - https://github.com/rowa78/k8s-home/releases/download/mariadb-0.0.3/mariadb-0.0.3.tgz
     version: 0.0.3
   wordpress:
+  - apiVersion: v2
+    appVersion: 5.7.2
+    created: "2021-07-14T21:10:09.954667326Z"
+    description: A Helm chart for Kubernetes
+    digest: c6b3759f220ad3a5f201d513a1ceb14f6a55c3627777c7da2e60c8a2f8afaa8b
+    name: wordpress
+    type: application
+    urls:
+    - https://github.com/rowa78/k8s-home/releases/download/wordpress-0.1.2/wordpress-0.1.2.tgz
+    version: 0.1.2
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2021-07-14T20:19:01.007782528Z"
