@@ -21,4 +21,5 @@ spec:
         pullPolicy: IfNotPresent
       podAnnotations:
         backup.velero.io/backup-volumes: mariadb-persistent-storage
-      
+      nodeSelector:        
+        beta.kubernetes.io/arch: arm64

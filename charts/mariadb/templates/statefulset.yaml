@@ -33,7 +33,10 @@ spec:
           env:
             # Use secret in real usage
           - name: MARIADB_ROOT_PASSWORD
-            value: {{ .Values.mariadb.rootpassword }}
+            valueFrom:
+              secretKeyRef:
+                name: blog-secrets
+                key: MARIADB_ROOT_PASSWORD
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
