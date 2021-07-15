@@ -53,7 +53,7 @@ spec:
           service: 
             name: rancher
             port: 
-              number: 80
+              number: 443
         path: /
         pathType: Prefix
   tls:
