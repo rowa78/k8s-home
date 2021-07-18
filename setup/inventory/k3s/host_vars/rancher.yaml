@@ -1,2 +1,2 @@
 master_ip: "{{ hostvars[groups['rancher'][0]]['ansible_host'] | default(groups['rancher'][0]) }}"
-extra_server_args: "--datastore-endpoint=\"mysql://k3srancher:Password2021!@tcp(diskstation:3307)/k3srancher\""
+extra_server_args: ""

@@ -103,6 +103,7 @@ kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.4
 
 # Create the namespace for cert-manager
 kubectl create namespace cert-manager
+kubectl create namespace cattle-system
 
 # Add the Jetstack Helm repository
 helm repo add jetstack https://charts.jetstack.io
