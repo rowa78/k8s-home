@@ -1,0 +1,74 @@
+connect:
+  applicationName: onepassword-connect
+  api:
+    name: connect-api
+    imageRepository: 1password/connect-api
+    resources: {}
+    httpPort: 8080
+    httpsPort: 8443
+  sync:
+    name: connect-sync
+    imageRepository: 1password/connect-sync
+    resources: {}
+    httpPort: 8081
+  credentialsName: op-credentials
+  credentialsKey: 1password-credentials.json
+  credentials:
+  tls:
+    enabled: false
+    secret: op-connect-tls
+  dataVolume:
+    name: shared-data
+    type: emptyDir
+    values: {}
+  imagePullPolicy: IfNotPresent
+  version: "{{ .Chart.AppVersion }}"
+  nodeSelector: 
+    beta.kubernetes.io/arch: amd64
+  probes:
+    liveness: true
+    readiness: true
+  annotations: {}
+  labels: {}
+  podAnnotations: {}
+  podLabels: {}
+
+operator:
+  create: true
+  autoRestart: true
+  applicationName: onepassword-connect-operator
+  imagePullPolicy: IfNotPresent
+  imageRepository: 1password/onepassword-operator
+  pollingInterval: 10
+  version: "1.0.1"
+  nodeSelector: {}
+  annotations: {}
+  labels: {}
+  podAnnotations: {}
+  podLabels: {}
+  watchNamespace: {}       
+  resources: {}
+  token:
+    name: onepassword-token
+    key: token
+    value:
+
+  serviceAccount:
+    create: "true"
+    annotations: {}
+    name: onepassword-connect-operator
+
+  roleBinding:
+    create: "false"
+    name: onepassword-connect-operator
+
+  clusterRole:
+    create: "true"
+    name: onepassword-connect-operator
+
+service:
+  type: ClusterIp      
+
+acceptanceTests:
+  enabled: false
+  fixtures: {}

@@ -124,15 +124,24 @@ kubectl -n 1password apply -f secret.yaml
 kubectl -n 1password create secret generic onepassword-token --from-literal=token=$OP_TOKEN
 
 # delete the temporary secret.yaml
+```
+
+Install the 1password operator
 
 ```
+helm repo add 1password https://1password.github.io/connect-helm-charts
+helm install connect 1password/connect --values 1password-operator/values.yaml
+kubectl apply -f 1password-operator/clusterrolebinding.yaml
+```
+
+
 
 ### install flux to cluster
 
 install flux
 
 ``` 
-kc create namespace flux-system
+kubectl create namespace flux-system
 flux bootstrap github --owner=rowa78 --repository=k8s-home --path=./clusters/production
 ```
 
