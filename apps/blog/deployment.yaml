@@ -26,6 +26,8 @@ spec:
               value: diskstation:3307
             - name: WORDPRESS_DB_NAME
               value: blog
+            - name: WORDPRESS_DB_USER
+              value: blog
             - name: WORDPRESS_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
