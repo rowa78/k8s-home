@@ -3,7 +3,7 @@ k3s_version: v1.21.2+k3s1
 ansible_user: ubuntu
 systemd_dir: /etc/systemd/system
 master_ip: "{{ hostvars[groups['master'][0]]['ansible_host'] | default(groups['master'][0]) }}"
-extra_server_args: "--disable servicelb --disable traefik"
+extra_server_args: "--disable servicelb --disable traefik --datastore-endpoint=\"mysql://k3s:Password2021!@tcp(192.168.0.3:3307)/k3s\""
 extra_agent_args: ""
 
 dns_server_ip: 192.168.0.7
