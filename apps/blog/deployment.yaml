@@ -3,6 +3,7 @@ apiVersion: apps/v1   # versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
   name: wordpress
+  namespace: blog
   labels:
     app: wordpress
 spec:
