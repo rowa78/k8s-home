@@ -52,6 +52,40 @@ CoreDNS is running at https://pi-0:6443/api/v1/namespaces/kube-system/services/k
 Metrics-server is running at https://pi-0:6443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
 ```
 
+## Kube-vip for loadbalanced-controlpane
+
+ssh into first node and create daemonset
+
+kubectl apply -f https://kube-vip.io/manifests/rbac.yaml
+
+ctr image pull docker.io/plndr/kube-vip:0.3.6
+
+alias kube-vip="ctr run --rm --net-host docker.io/plndr/kube-vip:0.3.6 vip /kube-vip"
+
+kube-vip manifest daemonset \
+    --arp \
+    --interface eth0 \
+    --address 192.168.0.119 \
+    --controlplane \
+    --leaderElection \
+    --taint \
+    --inCluster | tee /var/lib/rancher/k3s/server/manifests/kube-vip.yaml
+
+check running kube-vip pods:
+
+kubectl get pods --all-namespaces
+NAMESPACE     NAME                                        READY   STATUS    RESTARTS   AGE
+k3os-system   system-upgrade-controller-8bf4f84c4-f2ll4   1/1     Running   0          18m
+kube-system   coredns-854c77959c-xpdjh                    1/1     Running   0          18m
+kube-system   metrics-server-86cbb8457f-qngc6             1/1     Running   0          18m
+kube-system   local-path-provisioner-5ff76fc89d-z265t     1/1     Running   0          18m
+kube-system   kube-vip-ds-b27f8                           1/1     Running   0          28s
+kube-system   kube-vip-ds-gfw9p                           1/1     Running   0          28s
+kube-system   kube-vip-ds-5pd52                           1/1     Running   0          28s
+
+put an dns-entry to this ip to your DNS-Server in your LAN
+
+
 ## Setting up direnv
 
 Install direnv and setup some environment-variables in ./.envrc
@@ -130,7 +164,7 @@ Install the 1password operator
 
 ```
 helm repo add 1password https://1password.github.io/connect-helm-charts
-helm install connect 1password/connect --values 1password-operator/values.yaml
+helm -n 1password upgrade -i connect ../connect-helm-charts/charts/connect --set-file connect.credentials=/mnt/c/tmp/1password-credentials.json --values 1password-operator/values.yaml
 kubectl apply -f 1password-operator/clusterrolebinding.yaml
 ```
 
@@ -153,7 +187,7 @@ i need to resolve dns-entries in my lan. So i changed the dns-server in configma
 kc -n kube-system edit configmap coredns
 # change forward-line
 # forward to my pi-hole
-forward . 192.168.0.42
+forward . 192.168.0.7
 ```
 
 perhaps there is a better solution. Will look for that later.
