@@ -7,7 +7,7 @@ metadata:
     k8s-app: rancher
 spec:
   type: ExternalName
-  externalName: rancher
+  externalName: rancher.fritz.box
   clusterIP: "" 
   ports:
   - name: http
