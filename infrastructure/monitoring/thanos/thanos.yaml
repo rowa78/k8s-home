@@ -45,9 +45,9 @@ spec:
         access_key: "${MINIO_ACCESS_KEY}"
         secret_key: "${MINIO_SECRET_KEY}"
         bucket: "thanos"
-        endpoint: "diskstation:9000"
+        endpoint: "minio.${SECRET_DOMAIN}:9000"
         region: ""
-        insecure: true
+        insecure: false
         signature_version2: false
         put_user_metadata: {}
         http_config:
