@@ -110,6 +110,9 @@ spec:
       enabled: false
     prometheus-node-exporter:
       tolerations:
+      - key: "vm"
+        value: "true"
+        effect: "NoSchedule"
       - key: "arm"
         operator: "Exists"
       - key: "armhf"
