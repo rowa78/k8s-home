@@ -6,7 +6,7 @@ metadata:
   namespace: logs
 spec:
   interval: 5m
-  timeout: "3600"
+  timeout: "30m"
   chart:
     spec:
       # renovate: registryUrl=https://grafana.github.io/helm-charts
