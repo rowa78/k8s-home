@@ -2,11 +2,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: reise-blog
+  name: reise
   namespace: reise-blog
 spec:
   rules:
-  - host: reise-blog.${SECRET_DOMAIN}
+  - host: reise.${SECRET_DOMAIN}
     http:
       paths:
       - backend:
@@ -18,4 +18,4 @@ spec:
         pathType: Prefix
   tls:
     - hosts:
-      - reise-blog.${SECRET_DOMAIN}
+      - reise.${SECRET_DOMAIN}
