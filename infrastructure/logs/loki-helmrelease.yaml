@@ -6,6 +6,7 @@ metadata:
   namespace: logs
 spec:
   interval: 5m
+  timeout: "3600"
   chart:
     spec:
       # renovate: registryUrl=https://grafana.github.io/helm-charts
@@ -15,8 +16,7 @@ spec:
         kind: HelmRepository
         name: grafana-charts
         namespace: flux-system
-      interval: 5m
-      timeout: 3600
+      interval: 5m      
   values:
     loki:
       # image:
