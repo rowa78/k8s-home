@@ -1,0 +1,63 @@
+# Begin ANSIBLE VERSION
+ansible [core 2.11.3] 
+  config file = /home/ronny/dev/k8s-home/setup/ansible.cfg
+  configured module search path = ['/home/ronny/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /home/ronny/.local/lib/python3.8/site-packages/ansible
+  ansible collection location = /home/ronny/.ansible/collections:/usr/share/ansible/collections
+  executable location = /home/ronny/.local/bin/ansible
+  python version = 3.8.10 (default, Jun  2 2021, 10:49:15) [GCC 9.4.0]
+  jinja version = 2.10.1
+  libyaml = True
+# End ANSIBLE VERSION
+
+# Begin ANSIBLE CONFIG
+DEFAULT_BECOME(/home/ronny/dev/k8s-home/setup/ansible.cfg) = True
+DEFAULT_BECOME_METHOD(/home/ronny/dev/k8s-home/setup/ansible.cfg) = sudo
+DEFAULT_BECOME_USER(/home/ronny/dev/k8s-home/setup/ansible.cfg) = root
+DEFAULT_HOST_LIST(/home/ronny/dev/k8s-home/setup/ansible.cfg) = ['/home/ronny/dev/k8s-home/setup/hosts.yaml']
+DEFAULT_REMOTE_USER(/home/ronny/dev/k8s-home/setup/ansible.cfg) = ubuntu
+DEFAULT_ROLES_PATH(/home/ronny/dev/k8s-home/setup/ansible.cfg) = ['/home/ronny/dev/k8s-home/setup/roles']
+DEFAULT_VAULT_PASSWORD_FILE(/home/ronny/dev/k8s-home/setup/ansible.cfg) = /home/ronny/.secrets/ansible-vault-pass
+HOST_KEY_CHECKING(/home/ronny/dev/k8s-home/setup/ansible.cfg) = False
+# End ANSIBLE CONFIG
+
+# Begin ANSIBLE ROLES
+# /home/ronny/dev/k8s-home/setup/roles
+- ronnywalter.reboot, (unknown version)
+- ronnywalter.resolv_nodes, (unknown version)
+- xanmanning.k3s, v2.10.3
+- ronnywalter.prepare-k3s, (unknown version)
+# End ANSIBLE ROLES
+
+# Begin PLAY HOSTS
+["pi-0", "pi-1", "pi-2", "pi-3", "vm-0"]
+# End PLAY HOSTS
+
+# Begin K3S ROLE CONFIG
+## pi-0
+k3s_control_node: true
+k3s_check_cgroup_option: {"cmd": ["grep", "-E", "^cpuset\\s+.*\\s+1$", "/proc/cgroups"], "stdout": "cpuset\t11\t20\t1", "stderr": "", "rc": 0, "start": "2021-07-24 00:23:12.500731", "end": "2021-07-24 00:23:12.511139", "delta": "0:00:00.010408", "changed": false, "stdout_lines": ["cpuset\t11\t20\t1"], "stderr_lines": [], "failed": false, "failed_when_result": false}
+
+## pi-1
+k3s_control_node: true
+k3s_check_cgroup_option: {"cmd": ["grep", "-E", "^cpuset\\s+.*\\s+1$", "/proc/cgroups"], "stdout": "cpuset\t4\t8\t1", "stderr": "", "rc": 0, "start": "2021-07-24 00:23:12.531319", "end": "2021-07-24 00:23:12.541738", "delta": "0:00:00.010419", "changed": false, "stdout_lines": ["cpuset\t4\t8\t1"], "stderr_lines": [], "failed": false, "failed_when_result": false}
+
+## pi-2
+k3s_control_node: true
+k3s_check_cgroup_option: {"cmd": ["grep", "-E", "^cpuset\\s+.*\\s+1$", "/proc/cgroups"], "stdout": "cpuset\t7\t11\t1", "stderr": "", "rc": 0, "start": "2021-07-24 00:23:12.554760", "end": "2021-07-24 00:23:12.565182", "delta": "0:00:00.010422", "changed": false, "stdout_lines": ["cpuset\t7\t11\t1"], "stderr_lines": [], "failed": false, "failed_when_result": false}
+
+## pi-3
+k3s_check_cgroup_option: {"cmd": ["grep", "-E", "^cpuset\\s+.*\\s+1$", "/proc/cgroups"], "stdout": "cpuset\t9\t8\t1", "stderr": "", "rc": 0, "start": "2021-07-24 00:23:12.588834", "end": "2021-07-24 00:23:12.599139", "delta": "0:00:00.010305", "changed": false, "stdout_lines": ["cpuset\t9\t8\t1"], "stderr_lines": [], "failed": false, "failed_when_result": false}
+
+## vm-0
+k3s_check_cgroup_option: {"cmd": ["grep", "-E", "^cpuset\\s+.*\\s+1$", "/proc/cgroups"], "stdout": "cpuset\t10\t8\t1", "stderr": "", "rc": 0, "start": "2021-07-24 00:23:12.583069", "end": "2021-07-24 00:23:12.594495", "delta": "0:00:00.011426", "changed": false, "stdout_lines": ["cpuset\t10\t8\t1"], "stderr_lines": [], "failed": false, "failed_when_result": false}
+
+# End K3S ROLE CONFIG
+
+# Begin K3S RUNTIME CONFIG
+## pi-0
+## pi-1
+## pi-2
+## pi-3
+## vm-0
+# End K3S RUNTIME CONFIG

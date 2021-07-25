@@ -51,7 +51,7 @@ operator:
   podAnnotations: {}
   podLabels: {}
   watchNamespace: {}       
-  resources: {}
+  resources: {}  
   token:
     name: onepassword-token
     key: token

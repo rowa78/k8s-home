@@ -1,0 +1,3 @@
+k3s_server:
+  node-taint:
+    - "vm=true:NoSchedule"

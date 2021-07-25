@@ -1,0 +1,6 @@
+---
+- name: setup k3s-rancher
+  hosts: "rancher"  
+  roles:
+    - xanmanning.k3s
+    

@@ -1,0 +1,28 @@
+datastore_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          30636139326463353031333038653330626232353231306363366165313937306534353839346264
+          3434326533353537376439396434303965333836343564390a653761336234333231363231656665
+          33323964373935646633353638313833303332353131346139613839623364633839643436656539
+          6336656334633533660a643132643366653061383330363139343932313365336130383663666330
+          3665
+
+k3s_state: installed
+k3s_release_version: v1.21.3+k3s1
+k3s_become_for_all: yes
+k3s_build_cluster: true
+
+k3s_server:
+  datastore-endpoint: mysql://k3s:{{ datastore_password }}@tcp(192.168.0.3:3307)/k3s  
+  disable:
+    - local-storage
+    - traefik
+    - servicelb
+
+k3s_server_manifests_urls:
+  - url: https://kube-vip.io/manifests/rbac.yaml
+    filename: kube-vip-rbac.yaml
+
+k3s_server_manifests_templates:
+  - "manifests/kube-vip/kube-vip-daemonset.yaml"
+
+k3s_registration_address: 192.168.0.119

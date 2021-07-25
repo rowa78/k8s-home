@@ -9,13 +9,14 @@ spec:
   chart:
     spec:
       # renovate: registryUrl=https://grafana.github.io/helm-charts
-      chart: loki-stack
+      chart: loki-stack      
       version: 2.4.1
       sourceRef:
         kind: HelmRepository
         name: grafana-charts
         namespace: flux-system
       interval: 5m
+      timeout: 3600
   values:
     loki:
       # image:

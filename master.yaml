@@ -1,0 +1,11 @@
+k3s_control_node: true
+k3s_server:
+  advertise-address: "{{ ansible_host }}"
+  node-external-ip: "{{ ansible_host }}"
+  node-ip: "{{ ansible_host }}"
+  datastore-endpoint: mysql://k3s:{{ datastore_password }}@tcp(192.168.0.3:3307)/k3s  
+  disable:
+    - local-storage
+    - traefik
+    - servicelb
+  

@@ -1,0 +1,7 @@
+k3s_release_version: v1.21.3+k3s1
+
+k3s_server:
+  datastore-endpoint: mysql://k3srancher:Password2021!@tcp(192.168.0.3:3307)/k3srancher
+  disable:
+    - local-storage
+k3s_become_for_all: yes
