@@ -42,6 +42,9 @@ kind: Ingress
 metadata:
   name: diskstation
   namespace: ingress-nginx
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   rules:
   - host: ds.${SECRET_DOMAIN}
@@ -62,7 +65,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: minio
-  namespace: ingress-nginx
+  namespace: ingress-nginx  
 spec:
   rules:
   - host: minio.${SECRET_DOMAIN}
@@ -84,6 +87,9 @@ kind: Ingress
 metadata:
   name: note
   namespace: ingress-nginx
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   rules:
   - host: note.${SECRET_DOMAIN}
