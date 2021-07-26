@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: rancher
   namespace: ingress-nginx
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
   labels:
     k8s-app: rancher
 spec:
