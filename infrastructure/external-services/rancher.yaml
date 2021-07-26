@@ -7,7 +7,7 @@ metadata:
     k8s-app: rancher
 spec:
   type: ExternalName 
-  externalName: rancher.fritz.box
+  externalName: rancher.${SECRET_DOMAIN}
   ports:
   - name: http
     port: 80
