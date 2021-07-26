@@ -54,7 +54,7 @@ spec:
           service:
             name: diskstation
             port: 
-              number: 80
+              number: 443
         path: /
         pathType: Prefix
   tls:
@@ -99,7 +99,7 @@ spec:
           service: 
             name: diskstation
             port: 
-              number: 80
+              number: 443
         path: /note
         pathType: Prefix
   tls:
