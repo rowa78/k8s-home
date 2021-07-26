@@ -42,9 +42,6 @@ kind: Ingress
 metadata:
   name: diskstation
   namespace: ingress-nginx
-  annotations:
-    ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   rules:
   - host: ds.${SECRET_DOMAIN}
@@ -54,7 +51,7 @@ spec:
           service:
             name: diskstation
             port: 
-              number: 443
+              number: 80
         path: /
         pathType: Prefix
   tls:
@@ -87,9 +84,6 @@ kind: Ingress
 metadata:
   name: note
   namespace: ingress-nginx
-  annotations:
-    ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   rules:
   - host: note.${SECRET_DOMAIN}
@@ -99,7 +93,7 @@ spec:
           service: 
             name: diskstation
             port: 
-              number: 443
+              number: 80
         path: /note
         pathType: Prefix
   tls:
