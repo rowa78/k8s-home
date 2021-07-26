@@ -2,9 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: rancher
-  namespace: ingress-nginx
-  annotations:
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+  namespace: ingress-nginx  
   labels:
     k8s-app: rancher
 spec:
@@ -25,6 +23,8 @@ kind: Ingress
 metadata:
   name: rancher
   namespace: ingress-nginx
+  annotations:
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   rules:
   - host: rancher.${SECRET_DOMAIN}
