@@ -24,6 +24,7 @@ metadata:
   name: rancher
   namespace: ingress-nginx
   annotations:
+    ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   rules:
