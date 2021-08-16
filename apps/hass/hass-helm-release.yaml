@@ -23,10 +23,7 @@ spec:
     env:
       TZ: "Europe/Berlin"
     hostNetwork: true
-    dnsPolicy: ClusterFirstWithHostNet
-    service:
-      type: LoadBalancer
-      loadBalancerIP: ${HASS_LB_IP}
+    dnsPolicy: ClusterFirstWithHostNet    
     ingress:
       enabled: true
       annotations:
@@ -41,13 +38,6 @@ spec:
         - hass.${SECRET_DOMAIN}
     prometheus:
       serviceMonitor:
-        enabled: true
-    probes:
-      liveness:
-        enabled: true
-      readiness:
-        enabled: true
-      startup:
         enabled: true
     persistence:
       config:
