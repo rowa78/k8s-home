@@ -49,6 +49,12 @@ CoreDNS is running at https://192.168.0.119:6443/api/v1/namespaces/kube-system/s
 Metrics-server is running at https://192.168.0.119:6443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
 ```
 
+## Import Cluster to rancher
+
+
+
+
+
 ## Setting up direnv
 
 Install direnv and setup some environment-variables in ./.envrc
