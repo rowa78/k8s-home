@@ -22,7 +22,7 @@ spec:
       tag: 2021.8.7
     env:
       TZ: "Europe/Berlin"
-    #hostNetwork: true
+    hostNetwork: true
     #dnsPolicy: ClusterFirstWithHostNet
     ingress:
       main:
