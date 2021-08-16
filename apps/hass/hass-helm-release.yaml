@@ -22,18 +22,13 @@ spec:
       tag: 2021.8.7
     env:
       TZ: "Europe/Berlin"
-    hostNetwork: true
-    dnsPolicy: ClusterFirstWithHostNet
-    service:
-      main:
-        type: LoadBalancer
-        loadBalancerIP: ${HASS_LB_IP}
+    #hostNetwork: true
+    #dnsPolicy: ClusterFirstWithHostNet
     ingress:
       main:
         enabled: true
         annotations:
-          kubernetes.io/ingress.class: "nginx"     
-          nginx.org/websocket-services: "home-assistant"     
+          kubernetes.io/ingress.class: "nginx"                 
         hosts:
         - host: hass.${SECRET_DOMAIN}
           paths:
