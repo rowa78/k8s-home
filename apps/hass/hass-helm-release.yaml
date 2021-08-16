@@ -97,6 +97,8 @@ spec:
         memory: 1000Mi
     postgresql:
       enabled: true
+      image.repository: postgresql
+      image.tag: 11.13
       postgresqlUsername: home-assistant
       postgresqlPassword: ${SECRET_HASS_POSTGRES_PW}
       postgresqlDatabase: home-assistant
