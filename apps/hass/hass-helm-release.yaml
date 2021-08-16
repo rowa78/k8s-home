@@ -41,12 +41,12 @@ spec:
         - hass.${SECRET_DOMAIN}
     prometheus:
       serviceMonitor:
-        enabled: false
+        enabled: true
     probes:
       liveness:
-        enabled: false
+        enabled: true
       readiness:
-        enabled: false
+        enabled: true
       startup:
         enabled: true
     persistence:
@@ -62,7 +62,7 @@ spec:
         enabled: true
         image:
           repository: codercom/code-server
-          tag: 3.10.0
+          tag: 3.11.1
         workingDir: "/config"
         args:
           - --user-data-dir
