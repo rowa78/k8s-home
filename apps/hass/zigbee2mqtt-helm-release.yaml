@@ -16,7 +16,9 @@ spec:
         name: k8s-at-home-charts
         namespace: flux-system
       interval: 5m
-  values:    
+  values:
+    podAnnotations:
+      backup.velero.io/backup-volumes: data    
     env:
       TZ: "Europe/Berlin"
     # Path to your zigbee device in the container
