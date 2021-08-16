@@ -22,6 +22,10 @@ spec:
       tag: 2021.8.7
     env:
       TZ: "Europe/Berlin"
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: ${HASS_LB_IP}
     ingress:
       main:
         enabled: true
