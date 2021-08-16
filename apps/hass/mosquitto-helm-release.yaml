@@ -1,0 +1,64 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: mosquitto
+  namespace: home
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: mosquitto
+      version: 2.4.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      interval: 5m
+  values:    
+    env:
+      TZ: "Europe/Berlin"
+    service:
+      type: LoadBalancer
+      loadBalancerIP: ${MOSQUITTO_LB_IP}
+      annotations: {}
+      port:
+        port: 1883
+        name: mqtt      
+    persistence:
+      data:
+        enabled: true
+        emptyDir:
+          enabled: false
+        mountPath: /mosquitto/data
+        ## Persistent Volume Storage Class
+        ## If defined, storageClassName: <storageClass>
+        ## If set to "-", storageClassName: "", which disables dynamic provisioning
+        ## If undefined (the default) or set to null, no storageClassName spec is
+        ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+        ##   GKE, AWS & OpenStack)
+        storageClass: "nfs-client"
+        accessMode: ReadWriteOnce
+        size: 100Mi
+        ## Do not delete the pvc upon helm uninstall
+        # skipuninstall: false
+        # existingClaim: ""
+      configinc:
+        # a persistent volume to place *.conf mosquitto-config-files in
+        enabled: true
+        emptyDir:
+          enabled: false
+        mountPath: /mosquitto/configinc
+        ## Persistent Volume Storage Class
+        ## If defined, storageClassName: <storageClass>
+        ## If set to "-", storageClassName: "", which disables dynamic provisioning
+        ## If undefined (the default) or set to null, no storageClassName spec is
+        ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+        ##   GKE, AWS & OpenStack)
+        storageClass: "nfs-client"
+        accessMode: ReadWriteOnce
+        size: 100Mi
+        ## Do not delete the pvc upon helm uninstall
+        # skipuninstall: false
+        # existingClaim: ""
