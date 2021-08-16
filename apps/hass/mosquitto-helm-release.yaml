@@ -18,7 +18,7 @@ spec:
       interval: 5m
   values:
     podAnnotations:
-      backup.velero.io/backup-volumes: mosquitto-data
+      backup.velero.io/backup-volumes: mosquitto-data,mosquitto-configinc
     env:
       TZ: "Europe/Berlin"
     service:
