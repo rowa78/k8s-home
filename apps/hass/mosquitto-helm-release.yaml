@@ -22,12 +22,13 @@ spec:
     env:
       TZ: "Europe/Berlin"
     service:
-      type: LoadBalancer
-      loadBalancerIP: ${MOSQUITTO_LB_IP}
-      annotations: {}
-      port:
-        port: 1883
-        name: mqtt      
+      main:
+        ports:
+          http:
+            enabled: false
+          mqtt:
+            enabled: true
+            port: 1883         
     persistence:
       data:
         enabled: true
