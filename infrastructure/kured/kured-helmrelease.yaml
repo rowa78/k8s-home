@@ -45,7 +45,7 @@ spec:
       lockTtl: 0                 # force clean annotation after this amount of time (default 0, disabled)
       alertFilterRegexp: ""      # alert names to ignore when checking for active alerts
       blockingPodSelector: []    # label selector identifying pods whose presence should prevent reboots
-      endTime: "5:00"            # only reboot before this time of day (default "23:59")
+      endTime: ""            # only reboot before this time of day (default "23:59")
       lockAnnotation: ""         # annotation in which to record locking node (default "weave.works/kured-node-lock")
       period: ""                 # reboot check period (default 1h0m0s)
       forceReboot: false         # force a reboot even if the drain fails or times out (default: false)
@@ -62,7 +62,7 @@ spec:
       notifyUrl: ""              # notification URL with the syntax as follows: https://containrrr.dev/shoutrrr/services/overview/
       messageTemplateDrain: ""   # slack message template when notifying about a node being drained (default "Draining node %s")
       messageTemplateReboot: ""  # slack message template when notifying about a node being rebooted (default "Rebooted node %s")
-      startTime: "3:00"          # only reboot after this time of day (default "0:00")
+      startTime: ""          # only reboot after this time of day (default "0:00")
       timeZone: "Europe/Berlin"  # time-zone to use (valid zones from "time" golang package)
       annotateNodes: true        # enable 'weave.works/kured-reboot-in-progress' and 'weave.works/kured-most-recent-reboot-needed' node annotations to signify kured reboot operations
       lockReleaseDelay: 0        # hold lock after reboot by this amount of time (default 0, disabled)
