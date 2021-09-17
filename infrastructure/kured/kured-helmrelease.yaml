@@ -106,6 +106,9 @@ spec:
     tolerations:
       - key: node-role.kubernetes.io/master
         effect: NoSchedule
+      - effect: NoSchedule
+        key: vm
+        value: "true"  
 
     affinity: {}
 
