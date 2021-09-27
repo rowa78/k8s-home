@@ -99,3 +99,24 @@ spec:
   tls:
     - hosts:
       - note.${SECRET_DOMAIN}
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nexus
+  namespace: ingress-nginx  
+spec:
+  rules:
+  - host: nexus.${SECRET_DOMAIN}
+    http:
+      paths:
+      - backend:
+          service: 
+            name: diskstation
+            port: 
+              number: 38081
+        path: /
+        pathType: Prefix
+  tls:
+    - hosts:
+      - nexus.${SECRET_DOMAIN}
