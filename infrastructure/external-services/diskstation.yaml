@@ -40,8 +40,14 @@ subsets:
   - name: http
     port: 5000
     protocol: TCP
-  - name: minio
+  - name: minio  
     port: 9000
+    protocol: TCP
+  - name: nexus
+    port: 38081
+    protocol: TCP
+  - name: docker
+    port: 9999
     protocol: TCP
 ---
 
