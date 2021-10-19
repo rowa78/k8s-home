@@ -17,8 +17,6 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    receive:
-      enabled: true
     image:
       repository: raspbernetes/thanos
       tag: v0.22.0
