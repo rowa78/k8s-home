@@ -8,5 +8,6 @@ resources:
   - longhorn-system.yaml
   - snapshot-controller.yaml  
   - monitoring.yaml
+  - metallb.yaml
   
   
