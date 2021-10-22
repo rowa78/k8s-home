@@ -30,13 +30,14 @@ edit the host-config in setup/hosts.yaml
 
 ```
 cd setup
+ansible-playbook install.yaml
 ansible-playbook setup-k3s.yaml
 ```
 
-get kubeconfig from the cluster. It is located in file /etc/rancher/k3s/k3s.yaml. Place it in your homefolder: $HOME/.kube/config and edit the url to the loadbalanced ip provided by kube-vip. (192.168.0.119 in my case):
+get kubeconfig from the cluster. It is located in file /etc/rancher/k3s/k3s.yaml. Place it in your homefolder: $HOME/.kube/config and edit the url of my the master (192.168.0.40 in my case):
 
 ```
-server: https://192.168.0.119:6443
+server: https://192.168.0.40:6443
 ```
 
 
@@ -44,15 +45,15 @@ check the new cluster
 
 ```
 kubectl cluster-info
-Kubernetes control plane is running at https://192.168.0.119:6443
-CoreDNS is running at https://192.168.0.119:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
-Metrics-server is running at https://192.168.0.119:6443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
 ```
 
 ## Import Cluster to rancher
 
+login to rancher, create new cluster (existing) and execute the commands provided.
 
-
+```
+kubectl apply -f https://rancher.rwcloud.org/v3/import/xxxxx.yaml
+```
 
 
 ## Setting up direnv
@@ -89,14 +90,6 @@ direnv allow .envrc
 
 Now your environment-variables are set.
 
-## Setup flux
-
-Create namespace
-
-```
-kubectl create namespace flux-system
-```
-
 ### create initial config
 
 We use the 1Password-Operator to deliver secrets to out cluster. It need's an secret ' with the 1password-credentials.json in it. create an integration in 1password and save 1password-credentials.json and the token
@@ -110,8 +103,8 @@ Install the 1password operator
 
 ```
 helm repo add 1password https://1password.github.io/connect-helm-charts
-helm -n 1password upgrade -i connect ../connect-helm-charts/charts/connect --set-file connect.credentials=/mnt/c/tmp/1password-credentials.json --values 1password-operator/values.yaml
-kubectl apply -f 1password-operator/clusterrolebinding.yaml
+helm -n 1password upgrade -i connect 1password/connect --version 1.5.0 --set-file connect.credentials=/mnt/c/tmp/1password-credentials.json --values 1password-operator/values.yaml
+#kubectl apply -f 1password-operator/clusterrolebinding.yaml
 ```
 
 
@@ -122,7 +115,7 @@ install flux
 
 ``` 
 kubectl create namespace flux-system
-flux bootstrap github --owner=rowa78 --repository=k8s-home --path=./clusters/production
+flux bootstrap github --owner=rowa78 --repository=k8s-home --path=./clusters/pi
 ```
 
 ### manual changed

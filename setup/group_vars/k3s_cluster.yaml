@@ -7,9 +7,12 @@ datastore_password: !vault |
           3665
 
 k3s_state: installed
-k3s_release_version: v1.21.3+k3s1
+k3s_release_version: v1.21.5+k3s2
 k3s_become_for_all: yes
 k3s_build_cluster: true
+
+# i really want only one master node. :-)
+k3s_use_unsupported_config: true
 
 k3s_server:
   datastore-endpoint: mysql://k3s:{{ datastore_password }}@tcp(192.168.0.3:3307)/k3s  
@@ -18,11 +21,11 @@ k3s_server:
     - traefik
     - servicelb
 
-k3s_server_manifests_urls:
-  - url: https://kube-vip.io/manifests/rbac.yaml
-    filename: kube-vip-rbac.yaml
+#k3s_server_manifests_urls:
+#  - url: https://kube-vip.io/manifests/rbac.yaml
+#    filename: kube-vip-rbac.yaml
 
-k3s_server_manifests_templates:
-  - "manifests/kube-vip/kube-vip-daemonset.yaml"
+#k3s_server_manifests_templates:
+#  - "manifests/kube-vip/kube-vip-daemonset.yaml"
 
-k3s_registration_address: 192.168.0.119
+#k3s_registration_address: 192.168.0.119
