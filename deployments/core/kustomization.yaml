@@ -10,3 +10,4 @@ resources:
   - kured
   - node-feature-discovery
   - nfs-subdir-external-provisioner
+  - botkube

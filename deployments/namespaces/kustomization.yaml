@@ -12,5 +12,6 @@ resources:
   - kured.yaml
   - node-feature-discovery.yaml
   - nfs-subdir-external-provisioner.yaml
+  - botkube.yaml
   
   
