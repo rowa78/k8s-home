@@ -7,3 +7,5 @@ resources:
   - ingress-nginx
   - wildcard-certificate
   - external-services
+  - kured
+  - node-feature-discovery

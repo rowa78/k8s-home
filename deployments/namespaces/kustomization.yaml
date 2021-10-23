@@ -10,5 +10,6 @@ resources:
   - monitoring.yaml
   - metallb.yaml
   - kured.yaml
+  - node-feature-discovery.yaml
   
   
