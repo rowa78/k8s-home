@@ -12,3 +12,4 @@ resources:
   - nfs-subdir-external-provisioner
   - botkube
   - monitoring
+  - velero

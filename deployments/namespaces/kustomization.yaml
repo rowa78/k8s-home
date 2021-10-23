@@ -13,5 +13,6 @@ resources:
   - node-feature-discovery.yaml
   - nfs-subdir-external-provisioner.yaml
   - botkube.yaml
+  - velero.yaml
   
   
