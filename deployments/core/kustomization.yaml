@@ -9,3 +9,4 @@ resources:
   - external-services
   - kured
   - node-feature-discovery
+  - nfs-subdir-external-provisioner

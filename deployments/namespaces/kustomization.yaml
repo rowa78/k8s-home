@@ -11,5 +11,6 @@ resources:
   - metallb.yaml
   - kured.yaml
   - node-feature-discovery.yaml
+  - nfs-subdir-external-provisioner.yaml
   
   
