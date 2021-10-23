@@ -9,5 +9,6 @@ resources:
   - snapshot-controller.yaml  
   - monitoring.yaml
   - metallb.yaml
+  - kured.yaml
   
   
