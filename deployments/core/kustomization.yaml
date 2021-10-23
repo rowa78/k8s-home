@@ -11,3 +11,4 @@ resources:
   - node-feature-discovery
   - nfs-subdir-external-provisioner
   - botkube
+  - monitoring
