@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
   - thanos
   - kube-prometheus-stack
-  - logs
+  - loki
   - grafana
