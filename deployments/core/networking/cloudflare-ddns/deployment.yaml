@@ -17,12 +17,13 @@ spec:
     spec:
       containers:
       - name: cloudflare-ddns
-        image: oznu/cloudflare-ddns:aarch64
-        envFrom:
-        - secretRef:
-            name: cloudflare-token-secret
-            key: cloudflare-token
+        image: oznu/cloudflare-ddns:aarch64        
         env:
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: cloudflare-token-secret
+              key: cloudflare-token
         - name: ZONE
           value: ${SECRET_DOMAIN}
         - name: SUBDOMAIN
