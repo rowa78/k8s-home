@@ -5,6 +5,7 @@ resources:
   - cert-manager
   - metallb
   #- ingress-nginx
+  - networking
   - wildcard-certificate
   - external-services
   - kured

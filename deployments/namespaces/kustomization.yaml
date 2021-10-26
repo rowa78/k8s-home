@@ -8,6 +8,7 @@ resources:
   - longhorn-system.yaml
   - snapshot-controller.yaml  
   - monitoring.yaml
+  - networking.yaml
   - metallb.yaml
   - kured.yaml
   - node-feature-discovery.yaml
