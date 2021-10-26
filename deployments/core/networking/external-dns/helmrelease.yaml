@@ -29,7 +29,7 @@ spec:
     cloudflare:
       secretName: cloudflare-api-key-external-dns
       email: "${SECRET_CLOUDFLARE_EMAIL}"
-      proxied: true
+      proxied: false
     policy: sync
     txtPrefix: "k8s."
     domainFilters:
