@@ -8,6 +8,7 @@ resources:
   - wildcard-certificate
   - networking  
   - external-services
+  - rancher
   - kured
   - node-feature-discovery
   - nfs-subdir-external-provisioner
