@@ -17,8 +17,8 @@ spec:
         namespace: flux-system
       interval: 5m
   values:  
-    repository: bitnami/external-dns
-    tag: 0.10.1-debian-10-r0
+   # repository: bitnami/external-dns
+   # tag: 0.10.1-debian-10-r0
     nameOverride: external-dns
     interval: "5m"
     triggerLoopOnEvent: true
