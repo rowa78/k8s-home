@@ -32,7 +32,7 @@ spec:
         serviceMonitor:
           enabled: true
       extraArgs:
-        default-ssl-certificate: "ingress-nginx/${SECRET_DOMAIN/./-}-tls"
+        default-ssl-certificate: "ingress-nginx/wildcard-tls"
       resources:
         requests:
           memory: 100Mi
