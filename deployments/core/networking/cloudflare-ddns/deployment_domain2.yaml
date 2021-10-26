@@ -1,0 +1,37 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:  
+  name: cloudflare-ddns
+  namespace: networking
+  labels:
+    app: cloudflare-ddns
+spec:  
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudflare-ddns
+  template:
+    metadata:
+      labels:
+        app: cloudflare-ddns
+    spec:
+      containers:
+      - name: cloudflare-ddns
+        image: oznu/cloudflare-ddns:aarch64        
+        env:
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: cloudflare-token-secret
+              key: cloudflare-token
+        - name: ZONE
+          value: ${SECRET_DOMAIN_2}
+        - name: SUBDOMAIN
+          value: "ipv4"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 50Mi
+          limits:
+            cpu: 100m
+            memory: 50Mi

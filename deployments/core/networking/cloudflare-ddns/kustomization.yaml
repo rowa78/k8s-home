@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - cloudflare-token-secret.yaml
   - deployment.yaml
+  - deployment_domain2.yaml
