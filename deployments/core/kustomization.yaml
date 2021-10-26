@@ -4,8 +4,8 @@ kind: Kustomization
 resources:
   - cert-manager
   - metallb
-  #- ingress-nginx
-  - networking
+  - ingress-nginx
+  #- networking
   - wildcard-certificate
   - external-services
   - kured
