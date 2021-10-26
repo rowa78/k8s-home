@@ -20,9 +20,9 @@ spec:
     repository: bitnami/external-dns
     tag: 0.10.1-debian-10-r0
     nameOverride: external-dns
-    interval: "1m"
+    interval: "5m"
     triggerLoopOnEvent: true
-    logLevel: debug
+    logLevel: info
     sources:
       - ingress
     provider: cloudflare
