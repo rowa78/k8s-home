@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: diskstation-upload
-  namespace: ingress-nginx
+  namespace: networking
   labels:
     app: diskstation-upload
 spec:
