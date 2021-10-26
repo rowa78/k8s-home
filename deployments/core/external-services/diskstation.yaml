@@ -56,6 +56,8 @@ kind: Ingress
 metadata:
   name: diskstation
   namespace: ingress-nginx
+  annotations:
+    external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"    
 spec:
   rules:
   - host: ds.${SECRET_DOMAIN}
