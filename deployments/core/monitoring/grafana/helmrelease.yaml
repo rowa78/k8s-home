@@ -54,12 +54,12 @@ spec:
       annotations:
         hajimari.io/enable: "true"
         hajimari.io/icon: "chart-areaspline"        
-        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}" 
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}" 
       hosts:
-      - "grafana.${SECRET_DOMAIN}"
+      - "grafana.${SECRET_DOMAIN_2}"
       tls:
       - hosts:
-        - "grafana.${SECRET_DOMAIN}"
+        - "grafana.${SECRET_DOMAIN_2}"
 
     persistence:
       enabled: true
