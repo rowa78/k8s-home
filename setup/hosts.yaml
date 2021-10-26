@@ -10,4 +10,4 @@ k3s_cluster:
     pi-3:
       ansible_host: 192.168.0.43
     vm-0:
-      ansible_host: 192.168.0.39        
+      ansible_host: 192.168.0.39    
