@@ -79,6 +79,8 @@ kind: Ingress
 metadata:
   name: minio
   namespace: ingress-nginx  
+  annotations:
+    external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}" 
 spec:
   rules:
   - host: minio.${SECRET_DOMAIN}
@@ -100,6 +102,8 @@ kind: Ingress
 metadata:
   name: note
   namespace: ingress-nginx
+  annotations:
+    external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}" 
 spec:
   rules:
   - host: note.${SECRET_DOMAIN}
@@ -143,6 +147,8 @@ kind: Ingress
 metadata:
   name: docker
   namespace: ingress-nginx  
+  annotations:
+    external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
 spec:
   rules:
   - host: docker.${SECRET_DOMAIN}
