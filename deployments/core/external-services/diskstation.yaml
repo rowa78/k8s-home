@@ -125,6 +125,8 @@ kind: Ingress
 metadata:
   name: nexus
   namespace: ingress-nginx  
+  annotations:
+    external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
 spec:
   rules:
   - host: nexus.${SECRET_DOMAIN}
