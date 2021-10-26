@@ -5,6 +5,6 @@ metadata:
   name: rancher-stable
   namespace: flux-system
 spec:
-  interval: 30m
+  interval: 60m
   url: https://releases.rancher.com/server-charts/stable
   timeout: 2m
