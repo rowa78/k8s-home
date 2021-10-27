@@ -47,7 +47,7 @@ spec:
                     path: mydomain.key
                   - key: tls.crt
                     path: mydomain.crt
-                  name: "${SECRET_DOMAIN/./-}-tls"
+                  name: "wildcard-tls"
           - name: ca
             projected:
               defaultMode: 420
