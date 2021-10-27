@@ -34,17 +34,17 @@ spec:
       enabled: true
       ingressClassName: ""
       annotations:
-        external-dns.alpha.kubernetes.io/hostname: "authentik.${SECRET_DOMAIN}"
+        external-dns.alpha.kubernetes.io/hostname: "authentik.${SECRET_DOMAIN_2}"
         external-dns.alpha.kubernetes.io/ttl: "120"
       labels: {}
       hosts:
-        - host: authentik.${SECRET_DOMAIN}
+        - host: authentik.${SECRET_DOMAIN_2}
           paths:
             - path: "/"
               pathType: Prefix
       tls:
         - hosts:
-          - authentik.${SECRET_DOMAIN}
+          - authentik.${SECRET_DOMAIN_2}
 
     authentik:
       # -- Log level for server and worker
@@ -203,12 +203,14 @@ spec:
     postgresql:
       # -- enable the bundled bitnami postgresql chart
       enabled: true
+      nodeSelector: 
+        beta.kubernetes.io/arch: amd64
       postgresqlUsername: "authentik"
       postgresqlPassword: "${SECRET_AUTHENTIK_POSTGRES_PASSWORD}"
       postgresqlDatabase: "authentik"
       persistence:
         enabled: true
-        storageClass: "longhorn-backup"
+        storageClass: "nfs-client"
         accessModes:
           - ReadWriteOnce
     redis:
@@ -217,3 +219,5 @@ spec:
       architecture: standalone
       auth:
         enabled: false
+      nodeSelector: 
+        beta.kubernetes.io/arch: amd64
