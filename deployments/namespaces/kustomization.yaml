@@ -15,5 +15,6 @@ resources:
   - nfs-subdir-external-provisioner.yaml
   - botkube.yaml
   - velero.yaml
+  - authentik.yaml
   
   

@@ -32,10 +32,6 @@ connect:
   labels: {}
   podAnnotations: {}
   podLabels: {}
-  tolerations:
-    - effect: NoSchedule
-      key: vm
-      value: "true"
 
 operator:
   create: true
