@@ -203,8 +203,9 @@ spec:
     postgresql:
       # -- enable the bundled bitnami postgresql chart
       enabled: true
-      nodeSelector: 
-        beta.kubernetes.io/arch: amd64
+      primary:
+        nodeSelector: 
+          beta.kubernetes.io/arch: amd64
       postgresqlUsername: "authentik"
       postgresqlPassword: "${SECRET_AUTHENTIK_POSTGRES_PASSWORD}"
       postgresqlDatabase: "authentik"
@@ -219,5 +220,6 @@ spec:
       architecture: standalone
       auth:
         enabled: false
-      nodeSelector: 
-        beta.kubernetes.io/arch: amd64
+      master: 
+        nodeSelector: 
+          beta.kubernetes.io/arch: amd64
