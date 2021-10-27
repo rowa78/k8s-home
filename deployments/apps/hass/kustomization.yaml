@@ -4,3 +4,5 @@ kind: Kustomization
 resources:
   - mosquitto-helm-release.yaml
   - zigbee2mqtt-helm-release.yaml
+  - velero-schedule.yaml
+  - hass-helm-release.yaml

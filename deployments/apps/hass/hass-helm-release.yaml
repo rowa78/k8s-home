@@ -17,6 +17,8 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
+    nodeSelector: 
+      kubernetes.io/arch: arm64
     image:
       repository: homeassistant/home-assistant
       tag: 2021.10.6
@@ -28,15 +30,19 @@ spec:
       main:
         enabled: true
         annotations:
-          kubernetes.io/ingress.class: "nginx"                 
+          kubernetes.io/ingress.class: "nginx"     
+          nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN_2}/oauth2/auth"
+          nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN_2}/oauth2/start
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}" 
+          external-dns.alpha.kubernetes.io/ttl: "120"             
         hosts:
-        - host: hass.${SECRET_DOMAIN}
+        - host: hass.${SECRET_DOMAIN_2}
           paths:
           - path: /
             pathType: Prefix
         tls:
         - hosts:
-          - hass.${SECRET_DOMAIN}
+          - hass.${SECRET_DOMAIN_2}
     prometheus:
       serviceMonitor:
         enabled: true
@@ -58,6 +64,8 @@ spec:
     addons:
       codeserver:
         enabled: true
+        nodeSelector: 
+          kubernetes.io/arch: arm64
         image:
           repository: codercom/code-server
           tag: 3.11.1
@@ -71,16 +79,18 @@ spec:
           enabled: true
           annotations:
             kubernetes.io/ingress.class: "nginx"
-            nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/oauth2/auth"
-            nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN}/oauth2/start
+            nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN_2}/oauth2/auth"
+            nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN_2}/oauth2/start
+            external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}" 
+            external-dns.alpha.kubernetes.io/ttl: "120" 
           hosts:
-          - host: hass-vscode.${SECRET_DOMAIN}
+          - host: hass-vscode.${SECRET_DOMAIN_2}
             paths:
             - path: /
               pathType: Prefix
           tls:
           - hosts:
-            - hass-vscode.${SECRET_DOMAIN}
+            - hass-vscode.${SECRET_DOMAIN_2}
         volumeMounts:
         - name: config
           mountPath: /config
