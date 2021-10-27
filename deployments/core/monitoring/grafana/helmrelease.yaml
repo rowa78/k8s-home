@@ -55,6 +55,7 @@ spec:
         hajimari.io/enable: "true"
         hajimari.io/icon: "chart-areaspline"        
         external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}" 
+        external-dns.alpha.kubernetes.io/ttl: "120" 
       hosts:
       - "grafana.${SECRET_DOMAIN_2}"
       tls:
