@@ -23,8 +23,7 @@ spec:
       repository: homeassistant/home-assistant
       tag: 2021.10.6
     env:
-      TZ: "Europe/Berlin"
-    hostNetwork: true
+      TZ: "Europe/Berlin"    
     #dnsPolicy: ClusterFirstWithHostNet
     ingress:
       main:
