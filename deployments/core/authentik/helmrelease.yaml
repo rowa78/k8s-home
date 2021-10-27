@@ -36,6 +36,7 @@ spec:
       annotations:
         external-dns.alpha.kubernetes.io/hostname: "authentik.${SECRET_DOMAIN_2}"
         external-dns.alpha.kubernetes.io/ttl: "120"
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}" 
       labels: {}
       hosts:
         - host: authentik.${SECRET_DOMAIN_2}
