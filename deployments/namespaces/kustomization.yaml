@@ -16,5 +16,6 @@ resources:
   - botkube.yaml
   - velero.yaml
   - authentik.yaml
+  - oauth2-proxy.yaml
   
   

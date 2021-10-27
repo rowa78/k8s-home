@@ -15,4 +15,5 @@ resources:
   - botkube
   - monitoring
   - velero
-  - authentik
+  #- authentik
+  - oauth2-proxy
