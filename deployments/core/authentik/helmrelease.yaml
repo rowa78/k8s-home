@@ -232,7 +232,7 @@ spec:
         enabled: true
       primary:
         nodeSelector: 
-          beta.kubernetes.io/arch: amd64
+          kubernetes.io/arch: amd64
       postgresqlUsername: "authentik"
       postgresqlPassword: "${SECRET_AUTHENTIK_POSTGRES_PASSWORD}"
       postgresqlDatabase: "authentik"
@@ -249,4 +249,4 @@ spec:
         enabled: false
       master: 
         nodeSelector: 
-          beta.kubernetes.io/arch: amd64
+          kubernetes.io/arch: amd64

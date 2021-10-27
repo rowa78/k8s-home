@@ -24,7 +24,7 @@ connect:
   imagePullPolicy: IfNotPresent
   version: "{{ .Chart.AppVersion }}"
   nodeSelector: 
-    beta.kubernetes.io/arch: amd64
+    kubernetes.io/arch: amd64
   probes:
     liveness: true
     readiness: true
