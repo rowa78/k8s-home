@@ -29,6 +29,8 @@ spec:
       tls:
         - hosts:
             - auth.${SECRET_DOMAIN_2}
+      annotations:        
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}" 
 
     extraArgs:
       provider: github
