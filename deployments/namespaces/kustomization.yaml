@@ -17,5 +17,6 @@ resources:
   - velero.yaml
   - authentik.yaml
   - oauth2-proxy.yaml
+  - hass.yaml
   
   
