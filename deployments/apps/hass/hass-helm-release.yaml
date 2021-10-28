@@ -151,7 +151,7 @@ spec:
           - ReadWriteOnce
 
     influxdb:      
-      enabled: false
+      enabled: true
       architecture: standalone
       database: home_assistant
       authEnabled: false
