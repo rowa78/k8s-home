@@ -152,12 +152,16 @@ spec:
 
     influxdb:          
       enabled: true
-      nodeSelector: 
-        kubernetes.io/arch: amd64
+      image:
+        registry: docker.io
+        repository: bitnami/influxdb
+        tag: 2.0.9-debian-10-r25      
       architecture: standalone
       database: home_assistant
       authEnabled: false
       persistence:
         enabled: true
         # storageClass: ""
-      size: 8Gi
+      size: 30Gi
+      nodeSelector: 
+        kubernetes.io/arch: amd64
