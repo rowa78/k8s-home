@@ -163,5 +163,6 @@ spec:
         enabled: true
         # storageClass: ""
       size: 30Gi
-      nodeSelector: 
-        kubernetes.io/arch: amd64
+      influxdb:
+        nodeSelector: 
+          kubernetes.io/arch: amd64
