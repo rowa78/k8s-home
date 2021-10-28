@@ -150,8 +150,10 @@ spec:
         accessModes:
           - ReadWriteOnce
 
-    influxdb:      
+    influxdb:          
       enabled: true
+      nodeSelector: 
+        kubernetes.io/arch: amd64
       architecture: standalone
       database: home_assistant
       authEnabled: false
