@@ -17,14 +17,11 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    http:
-      server_host: 0.0.0.0
-      ip_ban_enabled: true
-      login_attempts_threshold: 5
-      use_x_forwarded_for: true
-      trusted_proxies:
-      # Pod CIDR
-      - 10.42.0.0/16
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: ${HASS_LB_IP}
+        externalTrafficPolicy: Local
 
     nodeSelector: 
       kubernetes.io/arch: arm64
