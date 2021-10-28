@@ -22,7 +22,7 @@ spec:
         type: LoadBalancer
         loadBalancerIP: ${HASS_LB_IP}
         externalTrafficPolicy: Local
-        
+
     nodeSelector: 
       kubernetes.io/arch: arm64
     image:
@@ -149,3 +149,13 @@ spec:
         storageClass: "nfs-client"
         accessModes:
           - ReadWriteOnce
+
+    influxdb:      
+      enabled: false
+      architecture: standalone
+      database: home_assistant
+      authEnabled: false
+      persistence:
+        enabled: true
+        # storageClass: ""
+      size: 8Gi
