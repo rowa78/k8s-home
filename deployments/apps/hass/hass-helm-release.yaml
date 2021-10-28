@@ -17,12 +17,7 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
-    service:
-      main:
-        type: LoadBalancer
-        loadBalancerIP: ${HASS_LB_IP}
-        externalTrafficPolicy: Local
-
+    
     nodeSelector: 
       kubernetes.io/arch: arm64
     image:
@@ -30,6 +25,8 @@ spec:
       tag: 2021.10.6    
     env:
       TZ: "Europe/Berlin"    
+      
+    hostNetwork: true
     #dnsPolicy: ClusterFirstWithHostNet
     ingress:
       main:
@@ -108,3 +105,44 @@ spec:
       requests:
         cpu: 100m
         memory: 1000Mi    
+
+    postgresql:
+      # -- enable the bundled bitnami postgresql chart
+      enabled: true
+      image:
+        registry: docker.io
+        repository: bitnami/postgresql
+        tag: 11.13.0
+        ## Specify a imagePullPolicy
+        ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
+        ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
+        ##
+        pullPolicy: IfNotPresent
+        ## Optionally specify an array of imagePullSecrets.
+        ## Secrets must be manually created in the namespace.
+        ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+        ## Example:
+        ## pullSecrets:
+        ##   - myRegistryKeySecretName
+        ##
+        pullSecrets: []
+        ## Set to true if you would like to see extra information on logs
+        ## It turns BASH and/or NAMI debugging in the image
+        ##
+        debug: true
+
+      volumePermissions:
+        ## @param volumePermissions.enabled Enable init container that changes volume permissions in the data directory (for cases where the default k8s `runAsUser` and `fsUser` values do not work)
+        ##
+        enabled: true
+      primary:
+        nodeSelector: 
+          kubernetes.io/arch: amd64
+      postgresqlUsername: "hass"
+      postgresqlPassword: "${SECRET_HASS_POSTGRES_PW}"
+      postgresqlDatabase: "hass"
+      persistence:
+        enabled: true
+        storageClass: "nfs-client"
+        accessModes:
+          - ReadWriteOnce
