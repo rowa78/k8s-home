@@ -18,5 +18,6 @@ resources:
   - authentik.yaml
   - oauth2-proxy.yaml
   - hass.yaml
+  - harbor.yaml
   
   
