@@ -169,4 +169,4 @@ spec:
       auth:
         ## @param auth.enabled Enable/disable authentication (Variable to keep compatibility with InfluxDB&trade; v1, in v2 it will be ignored)
         ##
-        enabled: true
+        enabled: false
