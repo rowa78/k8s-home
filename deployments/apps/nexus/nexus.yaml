@@ -6,8 +6,7 @@ metadata:
 spec:
     interval: 5m
     chart:
-      spec:
-        # renovate: registryUrl=https://itzg.github.io/minecraft-server-charts/
+      spec:        
         chart: nexus-repository-manager
         version: 35.0.0
         sourceRef:
@@ -44,8 +43,8 @@ spec:
             nexus.scripts.allowCreation: true
             # See this article for ldap configuratioon options https://support.sonatype.com/hc/en-us/articles/216597138-Setting-Advanced-LDAP-Connection-Properties-in-Nexus-Repository-Manager
             #nexus.ldap.env.java.naming.security.authentication: simple
-        # nodeSelector:
-        #   cloud.google.com/gke-nodepool: default-pool
+        nodeSelector: 
+          kubernetes.io/arch: amd64
         resources: {}
           # requests:
             ## Based on https://support.sonatype.com/hc/en-us/articles/115006448847#mem
