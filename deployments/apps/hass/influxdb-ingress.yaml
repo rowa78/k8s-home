@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    external-dns.alpha.kubernetes.io/target: ipv4.rwcloud.org
+    external-dns.alpha.kubernetes.io/ttl: "120"
+    kubernetes.io/ingress.class: nginx      
+  generation: 1
+  labels:
+    app.kubernetes.io/component: influxdb
+    app.kubernetes.io/instance: home-assistant
+    app.kubernetes.io/name: influxdb   
+spec:
+  rules:
+  - host: hass-influxdb.rwcloud.org
+    http:
+      paths:
+      - backend:
+          service:
+            name: home-assistant-influxdb
+            port:
+              number: 8086
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - hass-influxdb.rwcloud.org
