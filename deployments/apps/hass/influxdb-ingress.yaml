@@ -1,6 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  namespace: hass
+  name: hass-influxdb
   annotations:
     external-dns.alpha.kubernetes.io/target: ipv4.rwcloud.org
     external-dns.alpha.kubernetes.io/ttl: "120"
