@@ -428,7 +428,8 @@ spec:
         #  requests:
         #    memory: 256Mi
         #    cpu: 100m
-        nodeSelector: {}
+        nodeSelector: 
+          kubernetes.io/arch: amd64
         tolerations: []
         affinity: {}
         ## Additional deployment annotations
@@ -453,7 +454,8 @@ spec:
         #  requests:
         #    memory: 256Mi
         #    cpu: 100m
-        nodeSelector: {}
+        nodeSelector: 
+          kubernetes.io/arch: amd64
         tolerations: []
         affinity: {}
         ## Additional deployment annotations
@@ -494,7 +496,8 @@ spec:
         #   requests:
         #     memory: 256Mi
         #     cpu: 100m
-        nodeSelector: {}
+        nodeSelector: 
+          kubernetes.io/arch: amd64
         tolerations: []
         affinity: {}
         ## Additional deployment annotations
@@ -529,7 +532,8 @@ spec:
           #    memory: 256Mi
           #    cpu: 100m
         replicas: 1
-        nodeSelector: {}
+        nodeSelector: 
+          kubernetes.io/arch: amd64
         tolerations: []
         affinity: {}
         ## Additional deployment annotations
@@ -579,7 +583,8 @@ spec:
         #  requests:
         #    memory: 256Mi
         #    cpu: 100m
-        nodeSelector: {}
+        nodeSelector: 
+          kubernetes.io/arch: amd64
         tolerations: []
         affinity: {}
         ## Additional deployment annotations
@@ -640,7 +645,8 @@ spec:
           limits:
             cpu: 1
             memory: 1Gi
-        nodeSelector: {}
+        nodeSelector: 
+          kubernetes.io/arch: amd64
         tolerations: []
         affinity: {}
         ## Additional deployment annotations
@@ -663,7 +669,8 @@ spec:
           #  requests:
           #    memory: 256Mi
           #    cpu: 100m
-          nodeSelector: {}
+          nodeSelector: 
+            kubernetes.io/arch: amd64
           tolerations: []
           affinity: {}
           ## Additional deployment annotations
@@ -683,7 +690,8 @@ spec:
           #  requests:
           #    memory: 256Mi
           #    cpu: 100m
-          nodeSelector: {}
+          nodeSelector: 
+            kubernetes.io/arch: amd64
           tolerations: []
           affinity: {}
           ## Additional deployment annotations
@@ -720,7 +728,8 @@ spec:
           #  requests:
           #    memory: 256Mi
           #    cpu: 100m
-          nodeSelector: {}
+          nodeSelector: 
+            kubernetes.io/arch: amd64
           tolerations: []
           affinity: {}
           ## The priority class to run the pod as
@@ -762,7 +771,8 @@ spec:
           #  requests:
           #    memory: 256Mi
           #    cpu: 100m
-          nodeSelector: {}
+          nodeSelector: 
+            kubernetes.io/arch: amd64
           tolerations: []
           affinity: {}
           ## The priority class to run the pod as
@@ -798,7 +808,8 @@ spec:
           image:
             repository: goharbor/harbor-exporter
             tag: v2.3.3
-          nodeSelector: {}
+          nodeSelector: 
+            kubernetes.io/arch: amd64
           tolerations: []
           affinity: {}
           cacheDuration: 23
