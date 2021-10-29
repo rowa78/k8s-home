@@ -1,0 +1,135 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+    name: jenkins
+    namespace: jenkins
+spec:
+    interval: 5m
+    chart:
+      spec:
+        # renovate: registryUrl=https://itzg.github.io/minecraft-server-charts/
+        chart: jenkins
+        version: 3.8.4
+        sourceRef:
+          kind: HelmRepository
+          name: jenkins-charts
+          namespace: flux-system
+    values:
+      # Default values for jenkins.
+      # This is a YAML-formatted file.
+      # Declare name/value pairs to be passed into your templates.
+      # name: value
+
+      ## Overrides for generated resource names
+      # See templates/_helpers.tpl
+      # nameOverride:
+      # fullnameOverride:
+      # namespaceOverride:
+
+      # For FQDN resolving of the controller service. Change this value to match your existing configuration.
+      # ref: https://github.com/kubernetes/dns/blob/master/docs/specification.md
+      clusterZone: "cluster.local"
+
+      renderHelmLabels: true
+
+      controller:
+        # Used for label app.kubernetes.io/component
+        componentName: "jenkins-controller"
+        image: "jenkins/jenkins"
+        tag: "2.303.2-jdk11"
+        imagePullPolicy: "Always"
+        imagePullSecretName:
+        nodeSelector: 
+          kubernetes.io/arch: amd64
+
+        # List of plugins to be install during Jenkins controller start
+        installPlugins:
+          - kubernetes:1.30.1
+          - workflow-aggregator:2.6
+          - git:4.9.0
+          - configuration-as-code:1.53
+          - prometheus:2.0.10
+
+        ingress:
+          enabled: true
+          # Override for the default paths that map requests to the backend
+          paths: []
+          # - backend:
+          #     serviceName: ssl-redirect
+          #     servicePort: use-annotation
+          # - backend:
+          #     serviceName: >-
+          #       {{ template "jenkins.fullname" . }}
+          #     # Don't use string here, use only integer value!
+          #     servicePort: 8080
+          # For Kubernetes v1.14+, use 'networking.k8s.io/v1beta1'
+          # For Kubernetes v1.19+, use 'networking.k8s.io/v1'
+          apiVersion: "extensions/v1beta1"
+          labels: {}
+          annotations:          
+            external-dns.alpha.kubernetes.io/hostname: "jenkins.${SECRET_DOMAIN_2}"
+            external-dns.alpha.kubernetes.io/ttl: "120"
+            external-dns/is-public: "true"
+            external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"             
+          # kubernetes.io/ingress.class: nginx
+          # kubernetes.io/tls-acme: "true"
+          # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
+          # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
+          # ingressClassName: nginx
+          # Set this path to jenkinsUriPrefix above or use annotations to rewrite path
+          # path: "/jenkins"
+          # configures the hostname e.g. jenkins.example.com
+          hostName: jenkins.${SECRET_DOMAIN_2}
+          tls:
+            - hosts:
+              - jenkins.${SECRET_DOMAIN_2}
+
+        # Expose Prometheus metrics
+        prometheus:
+          # If enabled, add the prometheus plugin to the list of plugins to install
+          # https://plugins.jenkins.io/prometheus
+          enabled: true
+          # Additional labels to add to the ServiceMonitor object
+          serviceMonitorAdditionalLabels: {}
+          # Set a custom namespace where to deploy ServiceMonitor resource
+          # serviceMonitorNamespace: monitoring
+          scrapeInterval: 60s
+          # This is the default endpoint used by the prometheus plugin
+          scrapeEndpoint: /prometheus
+          # Additional labels to add to the PrometheusRule object
+          alertingRulesAdditionalLabels: {}
+          # An array of prometheus alerting rules
+          # See here: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
+          # The `groups` root object is added by default, simply add the rule entries
+          alertingrules: []
+          # Set a custom namespace where to deploy PrometheusRule resource
+          prometheusRuleNamespace: ""
+       
+      persistence:
+        enabled: true
+        ## A manually managed Persistent Volume and Claim
+        ## Requires persistence.enabled: true
+        ## If defined, PVC must be created manually before volume will be bound
+        existingClaim:
+        ## jenkins data Persistent Volume Storage Class
+        ## If defined, storageClassName: <storageClass>
+        ## If set to "-", storageClassName: "", which disables dynamic provisioning
+        ## If undefined (the default) or set to null, no storageClassName spec is
+        ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+        ##   GKE, AWS & OpenStack)
+        ##
+        storageClass: "nfs-client"
+        annotations: {}
+        labels: {}
+        accessMode: "ReadWriteOnce"
+        size: "8Gi"
+        volumes:
+        #  - name: nothing
+        #    emptyDir: {}
+        mounts:
+        #  - mountPath: /var/nothing
+        #    name: nothing
+        #    readOnly: true
+
+
+      

@@ -19,5 +19,6 @@ resources:
   - oauth2-proxy.yaml
   - hass.yaml
   - harbor.yaml
+  - jenkins.yaml
   
   
