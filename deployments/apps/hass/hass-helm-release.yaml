@@ -150,13 +150,11 @@ spec:
         accessModes:
           - ReadWriteOnce
 
-    influxdb:          
-      enabled: true
-      image:
-        registry: docker.io
-        repository: bitnami/influxdb
-        tag: 2.0.9-debian-10-r25
-      database: home_assistant      
+    influxdb:                
+      enabled: false
+      architecture: standalone
+      database: home_assistant
+      authEnabled: false     
       persistence:
         enabled: true
         # storageClass: ""
