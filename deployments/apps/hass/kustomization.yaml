@@ -6,4 +6,4 @@ resources:
   - zigbee2mqtt-helm-release.yaml
   - velero-schedule.yaml
   - hass-helm-release.yaml
-  - influxdb-ingress.yaml
+  #- influxdb-ingress.yaml
