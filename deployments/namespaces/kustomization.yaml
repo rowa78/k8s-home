@@ -20,5 +20,6 @@ resources:
   - hass.yaml
   - harbor.yaml
   - jenkins.yaml
+  - nexus.yaml
   
   
