@@ -169,4 +169,28 @@ spec:
       auth:
         ## @param auth.enabled Enable/disable authentication (Variable to keep compatibility with InfluxDB&trade; v1, in v2 it will be ignored)
         ##
-        enabled: false
+        enabled: true
+        ## @param auth.usePasswordFiles Whether to use files to provide secrets instead of env vars.
+        ##
+        usePasswordFiles: false
+        ## InfluxDB&trade; admin credentials
+        ##
+        admin:
+          ## @param auth.admin.username InfluxDB&trade; admin user name
+          ##
+          username: admin
+          ## @param auth.admin.password InfluxDB&trade; admin user's password
+          ##
+          password: "${HASS_INFLUXDB_ADMIN_PW}"      
+
+          token: "${HASS_INFLUXDB_ADMIN_TOKEN}"        
+        ## InfluxDB&trade; credentials for user with 'admin' privileges on the db specified at 'database' parameter
+        ##
+        user:
+          ## @param auth.user.username Name for InfluxDB&trade; user with 'admin' privileges on the bucket specified at `auth.user.bucket` and `auth.user.org` or `auth.admin.org`
+          ##
+          username: "{HASS_INFLUXDB_USER}"
+          ## @param auth.user.password InfluxDB&trade; password for `user.name` user
+          ##
+          password: "${HASS_INFLUXDB_PASSWD}"
+        
