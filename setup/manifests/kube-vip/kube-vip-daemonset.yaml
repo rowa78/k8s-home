@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: DaemonSet
-metadata:
-  creationTimestamp: null
+metadata:  
   name: kube-vip-ds
   namespace: kube-system
 spec:
@@ -9,8 +8,7 @@ spec:
     matchLabels:
       name: kube-vip-ds
   template:
-    metadata:
-      creationTimestamp: null
+    metadata:      
       labels:
         name: kube-vip-ds
     spec:
@@ -61,8 +59,3 @@ spec:
         key: node-role.kubernetes.io/master
         operator: Exists
   updateStrategy: {}
-status:
-  currentNumberScheduled: 0
-  desiredNumberScheduled: 0
-  numberMisscheduled: 0
-  numberReady: 0

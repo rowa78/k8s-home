@@ -124,6 +124,10 @@ spec:
         retentionSize: "50GB"
         enableAdminAPI: true
         walCompression: true
+
+        nodeSelector: 
+          kubernetes.io/arch: amd64
+
         storageSpec:
           volumeClaimTemplate:
             spec:

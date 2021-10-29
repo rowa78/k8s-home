@@ -21,11 +21,11 @@ k3s_server:
     - traefik
     - servicelb
 
-#k3s_server_manifests_urls:
-#  - url: https://kube-vip.io/manifests/rbac.yaml
-#    filename: kube-vip-rbac.yaml
+k3s_server_manifests_urls:
+  - url: https://kube-vip.io/manifests/rbac.yaml
+    filename: kube-vip-rbac.yaml
 
-#k3s_server_manifests_templates:
-#  - "manifests/kube-vip/kube-vip-daemonset.yaml"
+k3s_server_manifests_templates:
+  - "manifests/kube-vip/kube-vip-daemonset.yaml"
 
-#k3s_registration_address: 192.168.0.119
+k3s_registration_address: 192.168.0.119
