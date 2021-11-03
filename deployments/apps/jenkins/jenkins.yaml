@@ -49,6 +49,7 @@ spec:
           - git:4.9.0
           - configuration-as-code:1.53
           - prometheus:2.0.10
+          - pipeline-utility-steps:2.10.0
 
         ingress:
           enabled: true
