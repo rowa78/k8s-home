@@ -50,7 +50,7 @@ spec:
           - configuration-as-code
           - prometheus
           - pipeline-utility-steps
-          - docker-pipelines
+          - docker-workflow
 
         ingress:
           enabled: true
