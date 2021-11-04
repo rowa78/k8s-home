@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: maven-repo
+  name: cache
   namespace: jenkins
 spec:
   accessModes:
