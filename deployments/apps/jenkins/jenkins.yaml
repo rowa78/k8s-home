@@ -51,6 +51,7 @@ spec:
           - prometheus
           - pipeline-utility-steps
           - docker-workflow
+          - github
 
         ingress:
           enabled: true
