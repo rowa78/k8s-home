@@ -53,6 +53,7 @@ spec:
           - docker-workflow
           - github
           - github-branch-source
+          - config-file-provider
 
         ingress:
           enabled: true
