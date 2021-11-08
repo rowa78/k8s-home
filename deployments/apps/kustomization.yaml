@@ -6,3 +6,4 @@ resources:
   - harbor
   - jenkins
   - nexus
+  - chartmuseum
