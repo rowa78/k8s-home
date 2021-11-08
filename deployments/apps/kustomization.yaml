@@ -7,4 +7,4 @@ resources:
   - jenkins
   - nexus
   - chartmuseum
-  - eve
+  #- eve
