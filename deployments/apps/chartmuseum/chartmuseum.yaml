@@ -38,7 +38,7 @@ spec:
           # disable Prometheus metrics
           DISABLE_METRICS: false
           # disable all routes prefixed with /api
-          DISABLE_API: true
+          DISABLE_API: false
           # allow chart versions to be re-uploaded
           ALLOW_OVERWRITE: true
           # absolute url for .tgzs in index.yaml
