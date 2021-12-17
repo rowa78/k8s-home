@@ -397,7 +397,7 @@ spec:
       nginx:
         image:
           repository: goharbor/nginx-photon
-          tag: v2.3.3
+          tag: v2.4.1
         # set the service account to be used, default if left empty
         serviceAccountName: ""
         # mount the service account token
