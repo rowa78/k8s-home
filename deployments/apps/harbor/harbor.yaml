@@ -807,7 +807,7 @@ spec:
           automountServiceAccountToken: false
           image:
             repository: goharbor/harbor-exporter
-            tag: v2.3.3
+            tag: v2.4.1
           nodeSelector: 
             kubernetes.io/arch: amd64
           tolerations: []
