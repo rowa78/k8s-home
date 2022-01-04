@@ -23,7 +23,7 @@ spec:
           enabled: true
           Size: 10Gi
       nodeSelector: 
-        pc: true
+        pc: "true"
       resources:
         requests:
           memory: 512Mi
