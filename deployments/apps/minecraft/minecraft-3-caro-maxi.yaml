@@ -29,6 +29,8 @@ spec:
           limits:
             memory: 3048Mi
             cpu: 2000m
+        nodeSelector: 
+          kubernetes.io/arch: amd64
         #livenessProbe:
         #  initialDelaySeconds: 30
         #  periodSeconds: 5
