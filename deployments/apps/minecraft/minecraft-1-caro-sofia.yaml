@@ -23,7 +23,7 @@ spec:
           enabled: true
           Size: 10Gi
       nodeSelector: 
-        kubernetes.io/arch: amd64
+        pc: true
       resources:
         requests:
           memory: 512Mi
