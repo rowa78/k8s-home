@@ -41,6 +41,8 @@ spec:
           failureThreshold: 10
           successThreshold: 1
           timeoutSeconds: 1
+        nodeSelector: 
+          kubernetes.io/arch: amd64
         startupProbe:
           enabled: true
           failureThreshold: 30
