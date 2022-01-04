@@ -1,0 +1,7 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - minecraft-1-caro-sofia.yaml
+  - minecraft-2-caro-ronny.yaml
+  - minecraft-3-caro-maxi.yaml
