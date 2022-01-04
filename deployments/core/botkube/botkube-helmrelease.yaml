@@ -18,6 +18,7 @@ spec:
       interval: 5m
   values:
     image:
+      registry: docker.io
       repository: raspbernetes/botkube
       tag: v0.12.4
       pullPolicy: Always
