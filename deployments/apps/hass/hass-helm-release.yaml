@@ -27,7 +27,7 @@ spec:
       kubernetes.io/arch: arm64
     image:
       repository: homeassistant/home-assistant
-      tag: 2021.12.10    
+      tag: 2022.3.0    
     env:
       TZ: "Europe/Berlin"    
       
