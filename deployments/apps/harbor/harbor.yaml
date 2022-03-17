@@ -525,7 +525,7 @@ spec:
         controller:
           image:
             repository: goharbor/harbor-registryctl
-            tag: v2.3.3
+            tag: v2.4.2
 
           # resources:
           #  requests:
