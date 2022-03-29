@@ -20,7 +20,7 @@ spec:
   values:
     image:
       repository: raspbernetes/kured
-      tag: "1.7.0"
+      tag: "1.9.2"
       pullPolicy: IfNotPresent
       pullSecrets: []
 
