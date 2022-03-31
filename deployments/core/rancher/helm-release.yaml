@@ -8,9 +8,9 @@ spec:
   interval: 5m
   chart:
     spec:
-      # renovate: registryUrl=https://charts.jetstack.io/
+      # renovate: registryUrl=https://releases.rancher.com/server-charts/stable
       chart: rancher
-      version: 2.6.2
+      version: 2.6.3
       sourceRef:
         kind: HelmRepository
         name: rancher-stable
