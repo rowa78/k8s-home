@@ -93,6 +93,8 @@ spec:
               value: "true"
             - name: APP_URL
               value: seat.${SECRET_DOMAIN_2}
+            - name: APP_ENV
+              value: local
             - name: APP_KEY
               valueFrom:
                 secretKeyRef:
