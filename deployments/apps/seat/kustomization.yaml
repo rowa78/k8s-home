@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - mariadb
   - redis
-  - seat
+  - seat-app
