@@ -19,7 +19,8 @@ spec:
       containers:
         - name: seat-web
           image: eveseat/seat:4.2.7
+          command: ["web"]
           ports:
-            - containerPort: 6379
+            - containerPort: 80
       nodeSelector:
         beta.kubernetes.io/arch: amd64
