@@ -36,5 +36,7 @@ spec:
                 secretKeyRef:
                   name: mariadb
                   key: MARIADB_PASSWORD
+            - name: REDIS_HOST
+              value: redis
       nodeSelector:
         beta.kubernetes.io/arch: amd64
