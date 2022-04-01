@@ -65,5 +65,101 @@ spec:
                 secretKeyRef:
                   name: seat
                   key: eve-callback-url
+        - name: seat-worker
+          image: eveseat/seat:4.2.7 
+          args: ["worker"]
+          ports:
+            - containerPort: 80
+          env:
+            - name: DB_HOST
+              value: mariadb
+            - name: DB_DATABASE
+              value: seat
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb
+                  key: MARIADB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb
+                  key: MARIADB_PASSWORD
+            - name: REDIS_HOST
+              value: redis
+            - name: REDIS_PORT
+              value: '6379'
+            - name: APP_DEBUG
+              value: "true"
+            - name: APP_URL
+              value: seat.${SECRET_DOMAIN_2}
+            - name: APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: app-key
+            - name: EVE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: eve-client-id
+            - name: EVE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: eve-client-secret
+            - name: EVE_CALLBACK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: eve-callback-url
+        - name: seat-cron
+          image: eveseat/seat:4.2.7 
+          args: ["cron"]
+          ports:
+            - containerPort: 80
+          env:
+            - name: DB_HOST
+              value: mariadb
+            - name: DB_DATABASE
+              value: seat
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb
+                  key: MARIADB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb
+                  key: MARIADB_PASSWORD
+            - name: REDIS_HOST
+              value: redis
+            - name: REDIS_PORT
+              value: '6379'
+            - name: APP_DEBUG
+              value: "true"
+            - name: APP_URL
+              value: seat.${SECRET_DOMAIN_2}
+            - name: APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: app-key
+            - name: EVE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: eve-client-id
+            - name: EVE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: eve-client-secret
+            - name: EVE_CALLBACK_URL
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: eve-callback-url
       nodeSelector:
         beta.kubernetes.io/arch: amd64
