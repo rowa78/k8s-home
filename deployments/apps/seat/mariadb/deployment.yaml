@@ -24,6 +24,18 @@ spec:
             secretKeyRef:
               name: mariadb
               key: MARIADB_ROOT_PASSWORD
+        - name: MARIADB_USER
+          valueFrom:
+            secretKeyRef:
+              name: mariadb
+              key: MARIADB_USER
+        - name: MARIADB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mariadb
+              key: MARIADB_PASSWORD
+        - name: MARIADB_DATABASE
+          value: seat
         ports:
         - containerPort: 3306
           name: mysql
