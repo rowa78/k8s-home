@@ -23,5 +23,6 @@ resources:
   - nexus.yaml
   - chartmuseum.yaml
   - minecraft.yaml
+  - seat.yaml
   
   
