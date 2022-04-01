@@ -7,7 +7,7 @@ datastore_password: !vault |
           3665
 
 k3s_state: installed
-k3s_release_version: v1.21.5+k3s2
+k3s_release_version: v1.22.7+k3s1
 k3s_become_for_all: yes
 k3s_build_cluster: true
 
