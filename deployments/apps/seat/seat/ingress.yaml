@@ -12,14 +12,15 @@ metadata:
 spec:
   rules:
   - host: seat.${SECRET_DOMAIN_2}
-    paths:
-    - backend:
-      service:
-        name: seat
-        port:
-          number: 80
-      path: /
-      pathType: ImplementationSpecific
+    http:
+      paths:
+      - backend:
+          service:
+            name: seat
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
   tls:
   - hosts:
     - seat.${SECRET_DOMAIN_2}
