@@ -8,6 +8,8 @@ metadata:
     app: seat
 spec:
   replicas: 1
+  nodeSelector:
+    beta.kubernetes.io/arch: amd64
   selector:
     matchLabels:
       app: seat
