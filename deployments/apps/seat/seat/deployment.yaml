@@ -58,6 +58,9 @@ spec:
                   name: seat
                   key: eve-client-secret
             - name: EVE_CALLBACK_URL
-              value: seat.${SECRET_DOMAIN_2}/auth/eve/callback
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: eve-callback-url
       nodeSelector:
         beta.kubernetes.io/arch: amd64
