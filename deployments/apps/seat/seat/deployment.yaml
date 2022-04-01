@@ -41,10 +41,10 @@ spec:
               value: redis
             - name: REDIS_PORT
               value: '6379'
-             - name: APP_DEBUG
+            - name: APP_DEBUG
               value: "true"
             - name: APP_URL
-              value: seat.rwcloud.org
+              value: seat.${SECRET_DOMAIN_2}
             - name: APP_KEY
               value: seat
             - name: EVE_CLIENT_ID
