@@ -22,7 +22,7 @@ spec:
         - name: MARIADB_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mariadb-secrets
+              name: mariadb
               key: MARIADB_ROOT_PASSWORD
         ports:
         - containerPort: 3306
