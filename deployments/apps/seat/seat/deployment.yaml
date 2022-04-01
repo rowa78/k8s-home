@@ -18,8 +18,8 @@ spec:
     spec:
       containers:
         - name: seat-web
-          image: eveseat/seat:4.2.7
-          command: ["web"]
+          image: eveseat/seat:4.2.7 
+          args: ["web"]
           ports:
             - containerPort: 80
       nodeSelector:
