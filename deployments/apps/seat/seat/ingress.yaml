@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: seat.rwcloud.org
+    external-dns.alpha.kubernetes.io/target: ipv4.rwcloud.org
+    external-dns.alpha.kubernetes.io/ttl: "120"
+    external-dns/is-public: "true"
+  name: seat
+  namespace: seat
+spec:
+  rules:
+  - host: seat.rwcloud.org
+    http:
+      paths:
+      - backend:
+          service:
+            name: seat
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - seat.rwcloud.org
