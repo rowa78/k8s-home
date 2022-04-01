@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: seat
+  labels:
+    app: seat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: seat
+  template:
+    metadata:
+      labels:
+        app: seat
+    spec:
+      containers:
+        - name: seat-web
+          image: eveseat/seat:4.2.7
+          ports:
+            - containerPort: 6379
