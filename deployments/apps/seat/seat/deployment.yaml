@@ -41,5 +41,23 @@ spec:
               value: redis
             - name: REDIS_PORT
               value: '6379'
+             - name: APP_DEBUG
+              value: "true"
+            - name: APP_URL
+              value: seat.${SECRET_DOMAIN_2}
+            - name: APP_KEY
+              value: seat
+            - name: EVE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: eve-client-id
+            - name: EVE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: eve-client-secret
+            - name: EVE_CALLBACK_URL
+              value: seat.${SECRET_DOMAIN_2}/auth/eve/callback
       nodeSelector:
         beta.kubernetes.io/arch: amd64
