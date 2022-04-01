@@ -65,6 +65,40 @@ spec:
                 secretKeyRef:
                   name: seat
                   key: eve-callback-url
+            - name: MAIL_DRIVER
+              value: smtp
+            - name: MAIL_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: mail-host
+            - name: MAIL_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: mail-port
+            - name: MAIL_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: mail-username
+            - name: MAIL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: mail-password
+            - name: MAIL_ENCRYPTION
+              value: ntls
+            - name: MAIL_FROM_ADDRESS
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: mail-from-address
+            - name: MAIL_FROM_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: seat
+                  key: mail-from-user
         - name: seat-worker
           image: eveseat/seat:4.2.7 
           args: ["worker"]
