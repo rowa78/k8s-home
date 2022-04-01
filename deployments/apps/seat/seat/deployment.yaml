@@ -15,11 +15,11 @@ spec:
     metadata:
       labels:
         app: seat
-    nodeSelector:
-      beta.kubernetes.io/arch: amd64
     spec:
       containers:
         - name: seat-web
           image: eveseat/seat:4.2.7
           ports:
             - containerPort: 6379
+      nodeSelector:
+        beta.kubernetes.io/arch: amd64
