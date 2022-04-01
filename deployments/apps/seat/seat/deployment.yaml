@@ -39,5 +39,7 @@ spec:
                   key: MARIADB_PASSWORD
             - name: REDIS_HOST
               value: redis
+            - name: REDIS_PORT
+              value: 6379
       nodeSelector:
         beta.kubernetes.io/arch: amd64
