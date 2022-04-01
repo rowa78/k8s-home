@@ -44,7 +44,7 @@ spec:
              - name: APP_DEBUG
               value: "true"
             - name: APP_URL
-              value: seat.${SECRET_DOMAIN_2}
+              value: seat.rwcloud.org
             - name: APP_KEY
               value: seat
             - name: EVE_CLIENT_ID
