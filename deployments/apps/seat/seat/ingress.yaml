@@ -14,10 +14,10 @@ spec:
   - host: seat.${SECRET_DOMAIN_2}
     paths:
     - backend:
-        service:
-          name: seat
-          port:
-            number: 80
+      service:
+        name: seat
+        port:
+          number: 80
       path: /
       pathType: ImplementationSpecific
   tls:
