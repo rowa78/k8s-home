@@ -34,6 +34,7 @@ spec:
       annotations:        
         external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}" 
         external-dns.alpha.kubernetes.io/ttl: "120" 
+        kubernetes.io/ingress.class: "nginx"
     extraArgs:
       provider: github
       email-domain: "${SECRET_DOMAIN}"

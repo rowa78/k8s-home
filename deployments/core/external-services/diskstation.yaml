@@ -58,6 +58,7 @@ metadata:
   namespace: ingress-nginx
   annotations:
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"    
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
   - host: ds.${SECRET_DOMAIN}
@@ -81,6 +82,7 @@ metadata:
   namespace: ingress-nginx  
   annotations:
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}" 
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
   - host: minio.${SECRET_DOMAIN}
@@ -104,6 +106,7 @@ metadata:
   namespace: ingress-nginx
   annotations:
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}" 
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
   - host: note.${SECRET_DOMAIN}
@@ -127,6 +130,7 @@ metadata:
   namespace: ingress-nginx  
   annotations:
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
   - host: nexus.${SECRET_DOMAIN}
@@ -151,6 +155,7 @@ metadata:
   namespace: ingress-nginx  
   annotations:
     external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
   - host: docker.${SECRET_DOMAIN}

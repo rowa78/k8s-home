@@ -22,8 +22,8 @@ spec:
       extraAnnotations:
         external-dns.alpha.kubernetes.io/hostname: "rancher.${SECRET_DOMAIN_2}"
         external-dns.alpha.kubernetes.io/ttl: "120"        
-        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}"  
-        
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN_2}" 
+        kubernetes.io/ingress.class: "nginx"
       tls:
         source: secret
     
