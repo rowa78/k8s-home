@@ -7,8 +7,7 @@ spec:
     interval: 5m
     chart:
       spec:
-        # renovate: registryUrl=https://itzg.github.io/minecraft-server-charts/
-        chart: jenkins
+        # renovate: 
         version: 3.8.4
         sourceRef:
           kind: HelmRepository
@@ -36,7 +35,7 @@ spec:
         # Used for label app.kubernetes.io/component
         componentName: "jenkins-controller"
         image: "jenkins/jenkins"
-        tag: "2.303.3-jdk11"
+        tag: "2.332.2-lts-jdk11"
         imagePullPolicy: "Always"
         imagePullSecretName:
         nodeSelector: 
