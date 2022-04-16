@@ -8,5 +8,5 @@ resources:
   - nexus
   - chartmuseum
   #- eve
-  - minecraft
+  #- minecraft
   - seat
