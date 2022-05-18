@@ -96,10 +96,7 @@
       "automerge": true,
       "requiredStatusChecks": null,
       //"schedule": "after 1am and before 5am",
-      "updateTypes": ["minor", "patch"],
-      "packageNames": [     
-        "velero"
-      ]
+      "updateTypes": ["minor", "patch"]      
     }
   ]
 }
