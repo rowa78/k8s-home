@@ -71,48 +71,7 @@
       "datasources": ["helm"],
       "updateTypes": ["patch"],
       "labels": ["renovate/helm-release", "dependency/patch"]
-    },
-    // Custom versions
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(?<compatibility>.*)$",
-      "matchPackageNames": ["blakeblackshear/frigate"]
-    },
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^RELEASE\\.(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2})",
-      "matchPackageNames": ["minio/minio"]
-    },
-    {
-      "datasources": ["docker"],
-      "versionScheme": "regex:^nightly-0\\.(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
-      "packageNames": ["hotio/readarr"]
-    },
-    {
-      "datasources": ["docker"],
-      "versioning": "loose",
-      "packageNames": ["plexinc/pms-docker"]
-    },
-    // pin package versions
-    {
-      "matchDatasources": ["docker"],
-      "allowedVersions": "<13",
-      "matchPackageNames": [
-        "postgres"
-      ]
-    },
-    {
-      "matchDatasources": ["docker"],
-      "allowedVersions": "<2",
-      "matchPackageNames": [
-        "influxdb"
-      ]
-    },
-    {
-      "matchDatasources": ["helm"],
-      "allowedVersions": "<2",
-      "matchPackageNames": ["metallb"]
-    },
+    },    
     // auto-updates
     {
       "datasources": ["docker"],
@@ -123,12 +82,23 @@
       "packageNames": [
         "homeassistant/home-assistant",
         "codercom/code-server",
+        "docker.io/bitnami/postgresql",
         "ghcr.io/k8s-at-home/radarr",
         "ghcr.io/k8s-at-home/sonarr",
         "ghcr.io/k8s-at-home/nzbget",
         "ghcr.io/k8s-at-home/traefik",
         "plexinc/pms-docker",
         "hotio/readarr"
+      ]
+    },
+    {
+      "datasources": ["helm"],
+      "automerge": true,
+      "requiredStatusChecks": null,
+      //"schedule": "after 1am and before 5am",
+      "updateTypes": ["minor", "patch"],
+      "packageNames": [     
+        "velero"
       ]
     }
   ]
