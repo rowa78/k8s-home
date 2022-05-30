@@ -28,10 +28,10 @@ spec:
       nexus:
         docker:
           enabled: true
-          registries: []
-          #  - host: chart.local
-          #    port: 5000
-          #    secretName: registrySecret
+          registries:
+            - host: docker..${SECRET_DOMAIN_2}
+              port: 443
+              secretName: registrySecret
         env:
           - name: install4jAddVmParams
             value: "-Xms1200M -Xmx1200M -XX:MaxDirectMemorySize=2G -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
