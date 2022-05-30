@@ -30,7 +30,7 @@ spec:
           enabled: true
           registries:
             - host: docker..${SECRET_DOMAIN_2}
-              port: 443
+              port: 5000
               secretName: registrySecret
         env:
           - name: install4jAddVmParams
