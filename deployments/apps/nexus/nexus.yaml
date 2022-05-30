@@ -27,7 +27,7 @@ spec:
 
       nexus:
         docker:
-          enabled: false
+          enabled: true
           registries: []
           #  - host: chart.local
           #    port: 5000
