@@ -31,7 +31,7 @@ spec:
           registries:
             - host: docker.${SECRET_DOMAIN_2}
               port: 5000
-              secretName: registrySecret
+              secretName: 
         env:
           - name: install4jAddVmParams
             value: "-Xms1200M -Xmx1200M -XX:MaxDirectMemorySize=2G -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
