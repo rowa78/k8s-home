@@ -36,6 +36,7 @@ spec:
           - workflow-aggregator:latest
           - git:latest
           - configuration-as-code:latest
+          - github:latest
 
         # Set to false to download the minimum required version of all dependencies.
         installLatestPlugins: true
