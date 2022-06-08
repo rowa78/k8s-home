@@ -336,14 +336,6 @@ spec:
               #    jenkins:
               #      systemMessage: Welcome to our CI\CD server.  This Jenkins is configured and managed 'as code'.
               # Ignored if securityRealm is defined in controller.JCasC.configScripts and
-              securityRealm: |-
-                local:
-                  allowsSignup: false
-                  enableCaptcha: false
-                  users:
-                  - id: "${chart-admin-username}"
-                    name: "Jenkins Admin"
-                    password: "${chart-admin-password}"
               # Ignored if authorizationStrategy is defined in controller.JCasC.configScripts
               authorizationStrategy: |-
                 loggedInUsersCanDoAnything:
