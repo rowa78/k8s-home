@@ -244,7 +244,7 @@ controller:
  #   - git:latest
 
   # Set to false to download the minimum required version of all dependencies.
-  installLatestPlugins: true
+  installLatestPlugins: false
 
   # Set to true to download latest dependencies of any plugin that is requested to have the latest version.
   installLatestSpecifiedPlugins: false
