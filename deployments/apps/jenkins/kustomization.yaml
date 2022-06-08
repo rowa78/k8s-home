@@ -7,3 +7,4 @@ resources:
   - jenkins-instance.yaml
   - pvc_cache.yaml
   - pvc_workspace.yaml
+  - ingress.yaml
