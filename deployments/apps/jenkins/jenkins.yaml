@@ -39,6 +39,7 @@ spec:
           - github:latest
           - github-branch-source:latest
           - pipeline-utility-steps:latest
+          - config-file-provider
 
         # Set to false to download the minimum required version of all dependencies.
         installLatestPlugins: true
