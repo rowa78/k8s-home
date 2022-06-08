@@ -47,7 +47,7 @@ spec:
         # image is the name (and tag) of the Jenkins instance
         # Default: jenkins/jenkins:lts
         # It's recommended to use LTS (tag: "lts") version
-        image: jenkins/jenkins:2.319.3-lts
+        image: jenkins/jenkins:2.332.3-lts
 
         # env contains jenkins container environment variables
         env: []
@@ -208,7 +208,7 @@ spec:
 
           # image used by backup feature
           # By default using prebuilt backup PVC image by VirtusLab
-          image: virtuslab/jenkins-operator-backup-pvc:v0.1.0
+          image: virtuslab/jenkins-operator-backup-pvc:v0.1.1
 
           # containerName is backup container name
           containerName: backup
