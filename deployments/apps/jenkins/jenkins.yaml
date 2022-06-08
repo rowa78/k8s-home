@@ -15,4 +15,4 @@ spec:
           name: jenkins-charts
           namespace: flux-system
         valuesFiles:
-          - values.yaml 
+          - valuesXXX.yaml 
