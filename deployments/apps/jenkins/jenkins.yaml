@@ -21,7 +21,7 @@ spec:
       jenkins:
         # enabled can enable or disable the Jenkins instance
         # Set to false if you have configured CR already and/or you want to deploy an operator only
-        enabled: false
+        enabled: true
 
         # apiVersion is the version of the CR manifest
         # The recommended and default value is "jenkins.io/v1alpha2"
@@ -36,7 +36,7 @@ spec:
         # It's not recommended to use default namespace
         # Create new namespace for jenkins (called e.g. jenkins)
         # Note: this affects roles and rolebindings for jenkins operator itself
-        namespace: default
+        namespace: jenkins
 
         # labels are injected into metadata labels field
         labels: {}
@@ -80,6 +80,9 @@ spec:
         # https://jenkinsci.github.io/kubernetes-operator/docs/getting-started/latest/schema/#github.com/jenkinsci/kubernetes-operator/api/v1alpha2.ServiceAccount
         serviceAccount:
           annotations: {}
+        
+        nodeSelector: 
+          kubernetes.io/arch: amd64
 
         # basePlugins are plugins installed and required by the operator
         # Shouldn't contain plugins defined by user
@@ -126,7 +129,12 @@ spec:
         #    description: "Jenkins Operator repository"
         #    repositoryBranch: master
         #    repositoryUrl: https://github.com/jenkinsci/kubernetes-operator.git
-        seedJobs: []
+        seedJobs: 
+          - id: jenkins-operator
+            targets: "cicd/jobs/*.jenkins"
+            description: "Jenkins Operator repository"
+            repositoryBranch: master
+            repositoryUrl: https://github.com/jenkinsci/kubernetes-operator.git
 
         # Resource limit/request for Jenkins
         # See https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/ for details
