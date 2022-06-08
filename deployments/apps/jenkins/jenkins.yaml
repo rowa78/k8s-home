@@ -37,6 +37,7 @@ spec:
           - git:latest
           - configuration-as-code:latest
           - github:latest
+          - github-branch-source:latest
 
         # Set to false to download the minimum required version of all dependencies.
         installLatestPlugins: true
