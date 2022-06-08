@@ -14,5 +14,5 @@ spec:
           kind: HelmRepository
           name: jenkins-charts
           namespace: flux-system
-    valuesFiles:
-      - values.yaml 
+        valuesFiles:
+          - values.yaml 
