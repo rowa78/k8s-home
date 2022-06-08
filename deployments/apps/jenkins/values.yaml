@@ -48,7 +48,7 @@ controller:
   adminUser: "admin"
   # adminPassword: <defaults to random>
   admin:
-    existingSecret: ""
+    existingSecret: "jenkins-admin-secret"
     userKey: jenkins-admin-user
     passwordKey: jenkins-admin-password
   # This values should not be changed unless you use your custom image of jenkins or any devired from. If you want to use
