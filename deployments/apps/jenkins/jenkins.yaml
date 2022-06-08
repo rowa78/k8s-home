@@ -8,11 +8,11 @@ spec:
     chart:
       spec:
         # renovate: 
-        chart: jenkins
-        version: 3.8.4
+        chart: jenkins-operator
+        version: 0.6.0
         sourceRef:
           kind: HelmRepository
-          name: jenkins-charts
+          name: jenkins-operator-charts
           namespace: flux-system
         valuesFiles:
-          - valuesXXX.yaml 
+          - values.yaml 
