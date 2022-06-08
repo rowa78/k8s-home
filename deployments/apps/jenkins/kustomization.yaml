@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - jenkins-admin-secret.yaml
   - jenkins.yaml
+  - jenkins-instance.yaml
   - pvc_cache.yaml
   - pvc_workspace.yaml
