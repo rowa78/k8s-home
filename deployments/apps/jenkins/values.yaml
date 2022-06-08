@@ -238,10 +238,10 @@ controller:
 
   # List of plugins to be install during Jenkins controller start
   installPlugins:
-    - configuration-as-code:1.55
-    - kubernetes:latest
-    - workflow-aggregator:latest
-    - git:latest
+ #   - configuration-as-code:1.55
+ #   - kubernetes:latest
+ #   - workflow-aggregator:latest
+ #   - git:latest
 
   # Set to false to download the minimum required version of all dependencies.
   installLatestPlugins: true
@@ -261,7 +261,7 @@ controller:
   # overwritePlugins: true
 
   # Configures if plugins bundled with `controller.image` should be overwritten with the values of 'controller.installPlugins' on upgrade or redeployment.
-  overwritePluginsFromImage: true
+  overwritePluginsFromImage: false
 
   # Enable HTML parsing using OWASP Markup Formatter Plugin (antisamy-markup-formatter), useful with ghprb plugin.
   # The plugin is not installed by default, please update controller.installPlugins.
