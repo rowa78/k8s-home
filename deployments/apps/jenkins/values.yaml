@@ -241,6 +241,7 @@ controller:
     - kubernetes
     - workflow-aggregator
     - git
+    - git-client:3.11.0
     - configuration-as-code:1429.v09b_044a_c93de
 
   # Set to false to download the minimum required version of all dependencies.
