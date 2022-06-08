@@ -238,7 +238,7 @@ controller:
 
   # List of plugins to be install during Jenkins controller start
   installPlugins:
-    - configuration-as-code:latest
+    - configuration-as-code:1.55
     - kubernetes:latest
     - workflow-aggregator:latest
     - git:latest
