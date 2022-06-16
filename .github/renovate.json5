@@ -95,6 +95,13 @@
       "packageNames": [
         "fluxcd/flux2"
       ]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "allowedVersions": "v7.2.0-armv6",
+      "matchPackageNames": [
+        "oauth2-proxy",
+      ]
     }
   ]
 }
