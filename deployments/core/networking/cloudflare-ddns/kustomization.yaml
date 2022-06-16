@@ -5,3 +5,4 @@ resources:
   - cloudflare-token-secret.yaml
   - deployment.yaml
   - deployment_domain2.yaml
+  - deployment_domain3.yaml

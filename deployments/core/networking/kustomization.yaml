@@ -4,5 +4,5 @@ kind: Kustomization
 resources:  
   - cloudflare-ddns
   - external-dns
-  - blocky
+#  - blocky
   
