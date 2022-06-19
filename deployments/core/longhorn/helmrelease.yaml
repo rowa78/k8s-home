@@ -18,12 +18,12 @@ spec:
   values:
     longhornManager:
       nodeSelector:
-        kubernetes.io/arch: amd64
+        longhorn: "true"
     longhornDriver:
       nodeSelector:
-        kubernetes.io/arch: amd64
+        longhorn: "true"
     defaultSettings:
-      systemManagedComponentsNodeSelector: "kubernetes.io/arch:amd64"
+      systemManagedComponentsNodeSelector: "longhorn: true"
 
 
   
