@@ -15,4 +15,11 @@ spec:
         kind: HelmRepository
         name: rancher-charts-release-2-6
         namespace: flux-system
+  values:
+    longhornManager:
+      nodeSelector:
+        kubernetes.io/arch: amd64
+    longhornDriver:
+      nodeSelector:
+        kubernetes.io/arch: amd64
   
