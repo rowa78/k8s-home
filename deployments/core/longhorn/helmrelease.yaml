@@ -23,6 +23,6 @@ spec:
       nodeSelector:
         kubernetes.io/arch: amd64
     defaultSettings:
-      nodeSelector: "kubernetes.io/arch: amd64"
+      systemManagedComponentsNodeSelector: "kubernetes.io/arch: amd64"
 
   
