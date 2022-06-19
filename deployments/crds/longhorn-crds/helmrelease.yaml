@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: grafana
+  name: longhorn-crd
   namespace: longhorn-system
 spec:
   interval: 1h
