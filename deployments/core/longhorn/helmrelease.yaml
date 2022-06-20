@@ -23,6 +23,8 @@ spec:
       nodeSelector:
         longhorn: "true"
     defaultSettings:
+      backupTarget: 's3://longhorn@us-east-1/'
+      backupTargetCredentialSecret: minio-secret
       systemManagedComponentsNodeSelector: "longhorn: true"
 
 
