@@ -17,7 +17,7 @@ spec:
   values:
     grafana:
       nodeSelector:
-        kubernetes.io/arch=amd64
+        kubernetes.io/arch: amd64
       persistence:
         enabled: "true"
         accessModes:
@@ -36,7 +36,7 @@ spec:
             cpu: 750m
             memory: 2500Mi
         nodeSelector:
-          kubernetes.io/arch=amd64
+          kubernetes.io/arch: amd64
         storageSpec:
           volumeClaimTemplate:
             spec:
@@ -47,5 +47,5 @@ spec:
                   storage: 50Gi
               volumeMode: Filesystem
               storageClassName: longhorn
-              
+
 
