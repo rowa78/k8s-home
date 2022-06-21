@@ -5,6 +5,8 @@ metadata:
   name: longhorn
   namespace: longhorn-system
 spec:
+  dependsOn:
+    - name: longhorn-crd
   interval: 1h
   chart:
     spec:
