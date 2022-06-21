@@ -24,5 +24,6 @@ resources:
   - chartmuseum.yaml
   - minecraft.yaml
   - seat.yaml
+  - cattle-monitoring-system.yaml
   
   
