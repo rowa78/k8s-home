@@ -8,7 +8,6 @@ spec:
   interval: 1h
   chart:
     spec:
-      # renovate: registryUrl=https://grafana.github.io/helm-charts
       chart: longhorn
       version: 100.1.2+up1.2.4
       sourceRef:
@@ -22,11 +21,5 @@ spec:
     longhornDriver:
       nodeSelector:
         longhorn: "true"
-    defaultSettings:
-      backupTarget: 's3://longhorn@us-east-1/'
-      backupTargetCredentialSecret: minio-secret
-      systemManagedComponentsNodeSelector: "kubernetes.io/arch=amd64"
-
-
 
   
