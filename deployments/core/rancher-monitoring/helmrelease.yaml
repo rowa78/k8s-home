@@ -17,6 +17,7 @@ spec:
   values:
     grafana:
       persistence:
+        enabled: "true"
         accessModes:
           - ReadWriteMany
         storageClassName: longhorn
