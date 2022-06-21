@@ -18,9 +18,9 @@ spec:
     grafana:
       persistence:
         accessModes:
-          - ReadWriteOnce
+          - ReadWriteMany
         storageClassName: longhorn
-        size: 10G
+        size: 10Gi
         subPath: null
         type: pvc
     prometheus:
@@ -29,12 +29,9 @@ spec:
           volumeClaimTemplate:
             spec:
               accessModes:
-                - ReadWriteOnce
+                - ReadWriteMany
               resources:
                 requests:
                   storage: 50Gi
-              selector:
-                matchExpressions: []
-                matchLabels: {}
               volumeMode: Filesystem
               storageClassName: longhorn
