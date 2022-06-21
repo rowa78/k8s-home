@@ -38,4 +38,3 @@ spec:
                 matchLabels: {}
               volumeMode: Filesystem
               storageClassName: longhorn
-        
