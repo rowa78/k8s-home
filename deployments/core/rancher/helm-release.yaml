@@ -16,7 +16,7 @@ spec:
         name: rancher-stable
         namespace: flux-system
   values:
-    replicas: 1
+    replicas: 2
     hostname: "rancher.${SECRET_DOMAIN_2}"
     ingress:
       extraAnnotations:
