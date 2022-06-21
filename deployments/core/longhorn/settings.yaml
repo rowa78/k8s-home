@@ -12,4 +12,12 @@ metadata:
   name: backup-target-credential-secret
   namespace: longhorn-system
 value: minio-secret
+---
+apiVersion: longhorn.io/v1beta1
+kind: Setting
+metadata:
+  name: create-default-disk-labeled-nodes
+  namespace: longhorn-system
+value: "true"
+
 
