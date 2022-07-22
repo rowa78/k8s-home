@@ -40,7 +40,7 @@ spec:
           value: "1"
         - name: address
           value: 192.168.0.119
-        image: plndr/kube-vip:v0.4.4
+        image: plndr/kube-vip:v0.5.0
         imagePullPolicy: Always
         name: kube-vip
         resources: {}
