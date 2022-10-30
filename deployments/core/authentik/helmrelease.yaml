@@ -26,7 +26,7 @@ spec:
 
     image:
       repository: goauthentik.io/server
-      tag: 2021.12.5
+      tag: 2022.10.1
       pullPolicy: IfNotPresent
       pullSecrets: []
 
